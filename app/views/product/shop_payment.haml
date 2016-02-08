@@ -1,0 +1,152 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => "index.html"} Home
+      %li.active Checkout Payment
+
+%section.main-container
+  .container
+    .row
+      / main start
+      / ================
+      .main.col-md-12
+        / page-title start
+        / ================
+        %h1.page-title Checkout Payment
+        .separator-2
+        / page-title end
+        %fieldset
+          %legend Payment
+          %form#payment-information.form-horizontal{:role => "form"}
+            .row
+              .col-lg-3
+                .radio
+                  %label
+                    %input#optionsRadios1{:checked => "", :name => "optionsRadios", :type => "radio", :value => "option1"}
+                      Credit Card
+                      %i.fa.fa-cc-visa.pl-10
+                      %i.fa.fa-cc-amex.pl-10
+                      %i.fa.fa-cc-mastercard.pl-10
+                .space-bottom
+              .col-lg-9
+                .form-group
+                  %label.col-md-3.control-label{:for => "paymentFirstName"}
+                    First Name
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-md-4
+                        %input#paymentFirstName.form-control{:type => "text", :value => "First Name"}
+                .form-group
+                  %label.col-md-3.control-label{:for => "paymentLastName"}
+                    Last Name
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-md-4
+                        %input#paymentLastName.form-control{:type => "text", :value => "Last Name"}
+                .form-group
+                  %label.col-md-3.control-label
+                    Credit Card
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-md-4
+                        %select.form-control
+                          %option{:selected => "selected", :value => "visa"} VISA
+                          %option{:value => "master-card"} Master Card
+                          %option{:value => "american-express"} American Express
+                .form-group
+                  %label.col-md-3.control-label
+                    Card Number
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-xs-6.col-sm-2
+                        %input.form-control{:type => "text"}
+                      .col-xs-6.col-sm-2
+                        %input.form-control{:type => "text"}
+                      .clearfix.space-bottom.visible-xs
+                      .col-xs-6.col-sm-2
+                        %input.form-control{:type => "text"}
+                      .col-xs-6.col-sm-2
+                        %input.form-control{:type => "text"}
+                .form-group
+                  %label.col-md-3.control-label
+                    Expiration Date
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-xs-6.col-sm-2
+                        %select.form-control
+                          %option{:selected => "selected", :value => "01"} 01
+                          %option{:value => "03"} 02
+                          %option{:value => "03"} 03
+                          %option{:value => "04"} 04
+                          %option{:value => "05"} 05
+                          %option{:value => "06"} 06
+                          %option{:value => "07"} 07
+                          %option{:value => "08"} 08
+                          %option{:value => "09"} 09
+                          %option{:value => "10"} 10
+                          %option{:value => "11"} 11
+                          %option{:value => "12"} 12
+                      .col-xs-6.col-sm-2
+                        %select.form-control
+                          %option{:selected => "selected", :value => "2014"} 2014
+                          %option{:value => "2015"} 2015
+                          %option{:value => "2016"} 2016
+                          %option{:value => "2017"} 2017
+                          %option{:value => "2018"} 2018
+                          %option{:value => "2019"} 2019
+                          %option{:value => "2020"} 2020
+                          %option{:value => "2021"} 2021
+                          %option{:value => "2022"} 2022
+                          %option{:value => "2023"} 2023
+                          %option{:value => "2024"} 2024
+                          %option{:value => "2025"} 2025
+                .form-group
+                  %label.col-md-3.control-label
+                    CVS
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-xs-6.col-sm-2
+                        %input.form-control{:type => "text"}
+            .space
+            .row
+              .col-lg-3
+                .radio
+                  %label
+                    %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}
+                      Paypal
+                      %i.fa.fa-cc-paypal.pl-10
+                .space-bottom
+              .col-lg-9
+                .form-group
+                  %label.col-md-3.control-label{:for => "paymentEmail"}
+                    Email
+                    %small.text-default *
+                  .col-md-9
+                    .row
+                      .col-md-8
+                        %input#paymentEmail.form-control{:type => "email", :value => "Email"}
+            .space
+            .row
+              .col-lg-3
+                .radio
+                  %label
+                    %input#optionsRadios3{:name => "optionsRadios", :type => "radio", :value => "option3"}
+                      Cash On Delivery
+                .space-bottom
+              .col-lg-9
+                %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quo, non sint nisi, corrupti fuga qui quod autem totam, molestias reiciendis ex unde. Molestias, nostrum numquam, beatae totam esse ab.
+        .text-right
+          %a.btn.btn-group.btn-default{:href => shop_checkout_path}
+            %i.icon-left-open-big
+            Go Back
+          %a.btn.btn-group.btn-default{:href => shop_review_path}
+            Review and Complete Your Order
+            %i.icon-right-open-big

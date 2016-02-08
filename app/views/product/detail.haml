@@ -1,0 +1,91 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => root_path} Home
+      %li.active= @detail.title
+
+%section.main-container
+  .container
+    .row
+      .main.col-md-12
+        %h1.page-title= @detail.title
+        .separator-2
+        .row
+          .col-md-4
+            %ul.nav.nav-pills{:role => "tablist"}
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#pill-1", :role => "tab", :title => "images"}
+                  %i.fa.fa-camera.pr-5
+                  Photo
+              %li
+                %a{"data-toggle" => "tab", :href => "#pill-2", :role => "tab", :title => "video"}
+                  %i.fa.fa-video-camera.pr-5
+                  Video
+            .tab-content.clear-style
+              #pill-1.tab-pane.active
+                .overlay-container.overlay-visible
+                  -if @detail.category_id == 1
+                    %img{:alt => "", :src => asset_path("products/rice/""#{@detail.image}")}
+                    %a.popup-img.overlay-link{:href => asset_path("products/rice/""#{@detail.image}"), :title => @detail.title}
+                      %i.icon-plus-1
+                  -else
+                    %img{:alt => "", :src => asset_path("products/cereals/""#{@detail.image}")}
+                    %a.popup-img.overlay-link{:href => asset_path("products/cereals/""#{@detail.image}"), :title => @detail.title}
+                      %i.icon-plus-1
+              #pill-2.tab-pane
+                .embed-responsive.embed-responsive-16by9
+                  %iframe.embed-responsive-item{:src => "//player.vimeo.com/video/29198414?byline=0&amp;portrait=0"}
+                  %p
+                    %a{:href => "http://vimeo.com/29198414"} Introducing Vimeo Music Store
+                    from
+                    %a{:href => "http://vimeo.com/staff"} Vimeo Staff
+                    on
+                    = succeed "." do
+                      %a{:href => "https://vimeo.com"} Vimeo
+          .col-md-8.pv-30
+            %h2= @detail.title
+            %h2 Description
+            %p= @detail.description
+            %hr.mb-10
+              .clearfix.mb-20
+                %span
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                %a.wishlist{:href => "#"}
+                  %i.fa.fa-heart-o.pl-10.pr-5>
+                  Wishlist
+                %ul.pl-20.pull-right.social-links.circle.small.clearfix.margin-clear.animated-effect-1
+                  %li.twitter
+                    %a{:href => "http://www.twitter.com", :target => "_blank"}
+                      %i.fa.fa-twitter
+                  %li.googleplus
+                    %a{:href => "http://plus.google.com", :target => "_blank"}
+                      %i.fa.fa-google-plus
+                  %li.facebook
+                    %a{:href => "http://www.facebook.com", :target => "_blank"}
+                      %i.fa.fa-facebook
+              .row.grid-space-10
+                %form.clearfix{:role => "form"}
+                  .col-md-4
+                    .form-group
+                      %label Quantity
+                      %select.form-control
+                        %option 1 Kg
+                        %option 2 Kg
+                        %option 5 Kg
+                        %option 10 Kg
+                        %option 15 Kg
+                        %option 25 Kg
+                  .col-md-12.text-right
+              .light-gray-bg.p-20.bordered.clearfix
+                %span.product.price
+                  %i.icon-tag.pr-10>
+                  $99.00
+                .product.elements-list.pull-right.clearfix
+                  %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
+=render 'home/detail_specifications'

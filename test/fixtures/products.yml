@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  specification: MyText
+  benefit: MyText
+  image: MyString
+  video: MyString
+  price: 1.5
+  price_actual: MyString
+  rating: 1
+  status: false
+  stock: false
+  stock_in_kilo: 1
+  category_id: 
+
+two:
+  title: MyString
+  description: MyText
+  specification: MyText
+  benefit: MyText
+  image: MyString
+  video: MyString
+  price: 1.5
+  price_actual: MyString
+  rating: 1
+  status: false
+  stock: false
+  stock_in_kilo: 1
+  category_id: 

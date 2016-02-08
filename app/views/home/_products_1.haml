@@ -1,0 +1,212 @@
+%section.section.light-gray-bg.clearfix
+  .container
+    .row
+      .col-md-8
+        %ul.nav.nav-pills{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#pill-1", :role => "tab", :title => "Latest Arrivals"}
+              %i.icon-star
+              Our Rice Brands
+          %li
+            %a{"data-toggle" => "tab", :href => "#pill-2", :role => "tab", :title => "Featured"}
+              %i.icon-heart
+              Cereals
+          %li
+            %a{"data-toggle" => "tab", :href => "#pill-3", :role => "tab", :title => "Top Sellers"}
+              %i.icon-up-1
+              Top Sellers
+        .tab-content.clear-style
+          #pill-1.tab-pane.active
+            -rice_all.each do |rice|
+              .listing-item.mb-20
+                .row.grid-space-0
+                  .col-sm-6.col-md-4.col-lg-3
+                    .overlay-container
+                      %img{:alt => "", :src => asset_path("products/rice/""#{rice.image}")}
+                        %a.overlay-link{:href => shop_products_detail_path(category: 'rice', id: rice.id)}
+                          %i.fa.fa-plus
+                        %span.badge 30% OFF
+                  .col-sm-6.col-md-8.col-lg-9
+                    .body
+                      %h3.margin-clear
+                        =link_to rice.title, shop_products_detail_path(category: 'rice', id: rice.id)
+                      %p
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star
+                        %a.btn-sm-link{:href => "#"}
+                          %i.icon-heart.pr-5>
+                          Add to Wishlist
+                        %a.btn-sm-link{:href => shop_products_detail_path(category: 'rice', id: rice.id)}
+                          %i.icon-link.pr-5>
+                          View Details
+                      %p= rice.description
+                      .light-gray-bg.p-20.bordered.clearfix
+                        %span.product.price
+                          %i.icon-tag.pr-10>
+                          %del.price-del
+                            %i.fa.fa-rupee.pr-10
+                            =rice.price.to_f
+                          %span.price
+                            %i.fa.fa-rupee
+                            = rice.price_actual.to_f
+                        .product.elements-list.pull-right.clearfix
+                          %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
+          #pill-2.tab-pane
+            -cereal_all.each do |cereal|
+              .listing-item.mb-20
+                .row.grid-space-0
+                  .col-sm-6.col-md-4.col-lg-3
+                    .overlay-container
+                      %img{:alt => "", :src => asset_path("products/cereals/""#{cereal.image}")}
+                        %a.overlay-link{:href => shop_products_detail_path(category: 'cereal', id: cereal.id)}
+                          %i.fa.fa-plus
+                        %span.badge 20% OFF
+                  .col-sm-6.col-md-8.col-lg-9
+                    .body
+                      %h3.margin-clear
+                        =link_to cereal.title, shop_products_detail_path(category: 'cereal', id: cereal.id)
+                      %p
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %a.btn-sm-link{:href => "#"}
+                          %i.icon-heart.pr-5>
+                          Add to Wishlist
+                        %a.btn-sm-link{:href => shop_products_detail_path(category: 'cereal', id: cereal.id)}
+                          %i.icon-link.pr-5>
+                          View Details
+                      %p= cereal.description
+                      .elements-list.clearfix
+                        %a.btn.btn-sm.bg-maroon{:href => "#"}
+                          %i.fa.fa-rupee.pr-10
+                          %del.price-del
+                            =cereal.price.to_f
+                          %span.price
+                            = cereal.price_actual.to_f
+                        %a.pull-right.btn.btn-sm.bg-olive{:href => "#"}
+                          Add To Cart
+                          %i.fa.fa-shopping-cart
+          #pill-3.tab-pane
+            -5.times do |i|
+              .listing-item.mb-20
+                .row.grid-space-0
+                  .col-sm-6.col-md-4.col-lg-3
+                    .overlay-container
+                      %img{:alt => "", :src => asset_path("product_1.jpg")}
+                        %a.overlay-link{:href => "shop-product.html"}
+                          %i.fa.fa-plus
+                        %span.badge 50% OFF
+                  .col-sm-6.col-md-8.col-lg-9
+                    .body
+                      %h3.margin-clear
+                        %a{:href => "shop-product.html"} Dolorem quam delectus eos nostrum
+                      %p
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star.text-default
+                        %i.fa.fa-star
+                        %a.btn-sm-link{:href => "#"}
+                          %i.icon-heart.pr-5>
+                          Add to Wishlist
+                        %a.btn-sm-link{:href => "#"}
+                          %i.icon-link.pr-5>
+                          View Details
+                      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+                      .elements-list.clearfix
+                        %span.price
+                          %del $199.00
+                          $100.00
+                        %a.pull-right.btn.btn-sm.btn-default-transparent.btn-animated{:href => "#"}
+                          Add To Cart
+                          %i.fa.fa-shopping-cart
+        %nav.text-center
+          %ul.pagination
+            %li
+              %a{"aria-label" => "Previous", :href => "#"}
+                %i.fa.fa-angle-left
+            %li.active
+              %a{:href => "#"} 1
+            %li
+              %a{:href => "#"} 2
+            %li
+              %a{:href => "#"} 3
+            %li
+              %a{:href => "#"} 4
+            %li
+              %a{:href => "#"} 5
+            %li
+              %a{"aria-label" => "Next", :href => "#"}
+                %i.fa.fa-angle-right
+      / pagination end
+      / main end
+      / sidebar start
+      / ================
+      %aside.col-md-3.col-md-offset-1
+        .sidebar
+          .block.clearfix
+            %h3.title Best Sellers
+            .separator-2
+            #carousel-sidebar.carousel.slide{"data-ride" => "carousel"}
+              / Indicators
+              %ol.carousel-indicators.top
+                %li{"data-slide-to" => "0", "data-target" => "#carousel-sidebar"}
+                %li.active{"data-slide-to" => "1", "data-target" => "#carousel-sidebar"}
+                %li{"data-slide-to" => "2", "data-target" => "#carousel-sidebar"}
+              / Wrapper for slides
+              .carousel-inner{:role => "listbox"}
+                .item
+                  .listing-item
+                    .overlay-container
+                      %img{:alt => "product 1", :src => "images/product-1.jpg"}
+                        %span.badge 30% OFF
+                        %a.overlay-link{:href => "shop-product.html"}
+                          %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Suscipit consequatur velit
+                    %span.price
+                      %del $199.00
+                      $150.00
+                .item.active
+                  .listing-item
+                    .overlay-container
+                      %img{:alt => "product 2", :src => "images/product-2.jpg"}
+                        %span.badge 20% OFF
+                        %a.overlay-link{:href => "shop-product.html"}
+                          %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Quas inventore modi lorem
+                    %span.price
+                      %del $199.00
+                      $150.00
+                .item
+                  .listing-item
+                    .overlay-container
+                      %img{:alt => "product 3", :src => "images/product-3.jpg"}
+                        %span.badge 40% OFF
+                        %a.overlay-link{:href => "shop-product.html"}
+                          %i.fa.fa-link
+                    %h3
+                      %a{:href => "shop-product.html"} Consectetur adipisicing elit
+                    %span.price
+                      %del $199.00
+                      $150.00
+          .block.clearfix
+            =render 'home/categories'
+          .block.clearfix
+            %h3.title End of Season Sales
+            .separator-2
+            %p.margin-clear
+              Debitis eaque officia illo impedit ipsa earum
+              %a{:href => "#"} cupiditate repellendus
+              corrupti nisi nemo, perspiciatis optio harum, hic laudantium nulla maiores rem sit magni neque nihil sequi temporibus. Laboriosam ipsum reiciendis iste, nobis obcaecati, a autem voluptatum odio? Recusandae officiis dicta quod qui eligendi.
+          .block.clearfix
+            %form{:role => "search"}
+              .form-group.has-feedback
+                %input.form-control{:placeholder => "Search", :type => "text"}
+                  %i.fa.fa-search.form-control-feedback

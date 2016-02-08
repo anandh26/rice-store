@@ -1,0 +1,43 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => "index.html"} Home
+      %li.active Login
+
+.main-container{:style => "background-image:url(#{asset_path('background-img-6.jpg')});"}
+  .container
+    .row
+      .box.box-info
+        .box-header.with-border
+          %h3.box-title Login In
+        = form_tag :user_login, id: 'registration-form', class: 'form-horizontal' do
+          .box-body
+            -if flash[:error].present?
+              .callout.callout-danger
+                %p
+                  =flash[:error]
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputEmail"}
+                Email
+                %span.text-danger.small *
+              .col-sm-10
+                =text_field_tag :email, params[:email], class: 'required', :placeholder => 'Email', class: 'form-control'
+                %i.fa.fa-envelope.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputPassword"}
+                Password
+                %span.text-danger.small *
+              .col-sm-10
+                =password_field_tag :password, params[:password], class: 'required', :placeholder => 'Password', class: 'form-control'
+                %i.fa.fa-lock.form-control-feedback
+          .box-footer
+            %button.btn.bg-maroon.btn-flat{:type => "submit"}
+              Login
+            =link_to 'Sign Up', registration_path, class: 'btn bg-olive btn-flat'
+
+
+
+
+

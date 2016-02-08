@@ -1,0 +1,98 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a.link-dark{:href => "index.html"} Home
+      %li.active Contact Us
+
+%section.main-container
+  .container
+    .row
+      .main.col-md-8
+        %h1.page-title Contact Us
+        .separator-2
+        %p It would be great to hear from you! Just drop us a line and ask for anything with which you think we could be helpful. We are looking forward to hearing from you!
+        #MessageSent.alert.alert-success.hidden
+          We have received your message, we will contact you very soon.
+        #MessageNotSent.alert.alert-danger.hidden
+          Oops! Something went wrong please refresh the page and try again.
+        .contact-form
+          %form#contact-form.margin-clear{:novalidate => "novalidate", :role => "form"}
+            -if session[:user].present?
+              .form-group.has-feedback
+                %label{:for => "name"} Name*
+                %input#name-from-user.form-control{:name => "name", value: "#{session[:user]['first_name']}, #{session[:user]['last_name']}", :placeholder => "Your name", :type => "text"}
+                  %i.fa.fa-user.form-control-feedback
+            -else
+              .form-group.has-feedback
+                %label{:for => "name"} Name*
+                %input#name.form-control{:name => "name", :placeholder => "", :type => "text"}
+                  %i.fa.fa-user.form-control-feedback
+            -if session[:user].present?
+              .form-group.has-feedback
+                %label{:for => "email"} Email*
+                %input#email-from-user.form-control{:name => "email", value: "#{session[:user]['email']}", :placeholder => "Email", :type => "email"}
+                  %i.fa.fa-envelope.form-control-feedback
+            -else
+              .form-group.has-feedback
+                %label{:for => "email"} Email*
+                %input#email.form-control{:name => "email", :placeholder => "", :type => "email"}
+                  %i.fa.fa-envelope.form-control-feedback
+            .form-group.has-feedback
+              %label{:for => "subject"} Subject*
+              %input#subject.form-control{:name => "subject", :placeholder => "Subject", :type => "text"}
+                %i.fa.fa-navicon.form-control-feedback
+            .form-group.has-feedback
+              %label{:for => "message"} Message*
+              %textarea#message.form-control{:name => "message", :placeholder => "Your message", :rows => "6"}
+              %i.fa.fa-pencil.form-control-feedback
+            %input.submit-button.btn.btn-primary{:type => "submit", :value => "Submit"}
+      %aside.col-md-4.col-lg-3.col-lg-offset-1
+        .sidebar
+          .block.clearfix
+            %h3.title Find Us
+            .separator-2
+            %ul.list
+              %li
+                %i.fa.fa-home.pr-10>
+                795 Folsom Ave, Suite 600
+                %br
+                  %span.pl-20 San Francisco, CA 94107
+              %li
+                %i.fa.fa-phone.pr-10
+                %abbr{:title => "Phone"} P:
+                (123) 456-7890
+              %li
+                %i.fa.fa-mobile.pr-10.pl-5
+                %abbr{:title => "Phone"} M:
+                (123) 456-7890
+              %li
+                %i.fa.fa-envelope.pr-10
+                %a{:href => "mailto:info@idea.com"} info@theproject.com
+        .sidebar
+          .block.clearfix
+            %h2.title Follow Us
+            .separator-2
+            %ul.social-links.circle.small.margin-clear.clearfix.animated-effect-1
+              %li.twitter
+                %a{:href => "http://www.twitter.com", :target => "_blank"}
+                  %i.fa.fa-twitter
+              %li.skype
+                %a{:href => "http://www.skype.com", :target => "_blank"}
+                  %i.fa.fa-skype
+              %li.linkedin
+                %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                  %i.fa.fa-linkedin
+              %li.googleplus
+                %a{:href => "http://plus.google.com", :target => "_blank"}
+                  %i.fa.fa-google-plus
+              %li.youtube
+                %a{:href => "http://www.youtube.com", :target => "_blank"}
+                  %i.fa.fa-youtube-play
+              %li.flickr
+                %a{:href => "http://www.flickr.com", :target => "_blank"}
+                  %i.fa.fa-flickr
+              %li.facebook
+                %a{:href => "http://www.facebook.com", :target => "_blank"}
+                  %i.fa.fa-facebook

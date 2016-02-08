@@ -1,0 +1,47 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => "index.html"} Home
+      %li.active Products
+
+%section.main-container
+  .container
+    .row
+      .main.col-md-8.col-lg-offset-1.col-md-push-4.col-lg-push-3
+        %h1.page-title Our Products
+        .separator-2
+        =render 'product/products'
+
+      %aside.col-md-4.col-lg-3.col-md-pull-8.col-lg-pull-9
+        .sidebar
+          .block.clearfix
+            %h3.title Categories
+            .separator-2
+            %nav
+              %ul.nav.nav-pills.nav-stacked
+                -Category.all.each do |cat|
+                  %li
+                    =link_to cat.name, shop_products_category_path(cat.name)
+                %li
+                  %a{:href => "blog-large-image-right-sidebar.html"} Blog
+                %li
+                  %a{:href => "portfolio-grid-2-3-col.html"} Portfolio
+                %li
+                  %a{:href => "page-about.html"} About
+                %li
+                  %a{:href => "page-contact.html"} Contact
+          .block.clearfix
+            %h3.title Featured Products
+            .separator-2
+            .owl-carousel.content-slider-with-controls-autoplay.owl-theme{:style => "opacity: 1; display: block;"}
+              -5.times do |f|
+                .overlay-container.overlay-visible
+                  %img{:alt => "", :src => asset_path("rice_home_slider.jpg")}
+                    .overlay-bottom.hidden-xs
+                      .text
+                        %h3.title Caption Title
+                        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum optio odio, recusandae qui minima eveniet cumque praesentium expedita sint accusamus itaque.
+                    %a.popup-img.overlay-link{:href => "images/portfolio-2.jpg", :title => "image title"}
+                      %i.icon-plus-1

@@ -1,0 +1,119 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => "index.html"} Home
+      %li.active Checkout Review
+
+%section.main-container
+  .container
+    .row
+      / main start
+      / ================
+      .main.col-md-12
+        / page-title start
+        / ================
+        %h1.page-title Checkout Review
+        .separator-2
+        / page-title end
+        %table.table.cart
+          %thead
+            %tr
+              %th Product
+              %th Price
+              %th Quantity
+              %th.amount Total
+          %tbody
+            %tr
+              %td.product
+                %a{:href => "shop-product.html"} Product Title 1
+                %small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
+              %td.price $99.50
+              %td.quantity
+                .form-group
+                  %input.form-control{:disabled => "", :type => "text", :value => "2"}
+              %td.amount $199.00
+            %tr
+              %td.product
+                %a{:href => "shop-product.html"} Product Title 2
+                %small Quas inventore modi
+              %td.price $99.66
+              %td.quantity
+                .form-group
+                  %input.form-control{:disabled => "", :type => "text", :value => "3"}
+              %td.amount $299.00
+            %tr
+              %td.product
+                %a{:href => "shop-product.html"} Product Title 3
+                %small Fugiat nemo enim officiis repellendus
+              %td.price $499.66
+              %td.quantity
+                .form-group
+                  %input.form-control{:disabled => "", :type => "text", :value => "3"}
+              %td.amount $1499.00
+            %tr
+              %td.total-quantity{:colspan => "3"} Subtotal
+              %td.amount $1997.00
+            %tr
+              %td.total-quantity{:colspan => "2"} Discount Coupon
+              %td.price TheProject25672
+              %td.amount -20%
+            %tr
+              %td.total-quantity{:colspan => "3"} Total 8 Items
+              %td.total-amount $1597.00
+        .space-bottom
+        %table.table
+          %thead
+            %tr
+              %th{:colspan => "2"} Billing Information
+          %tbody
+            %tr
+              %td Full Name
+              %td.information John Doe
+            %tr
+              %td Email
+              %td.information johndoe@mail.com
+            %tr
+              %td Telephone
+              %td.information +00 123 123 1234
+            %tr
+              %td Address
+              %td.information One infinity loop, 54100, United States
+            %tr
+              %td Additional Info
+              %td.information Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum accusamus pariatur odit neque.
+        .space-bottom
+        %table.table
+          %thead
+            %tr
+              %th{:colspan => "2"} Shipping Information
+          %tbody
+            %tr
+              %td Full Name
+              %td.information John Doe
+            %tr
+              %td Email
+              %td.information johndoe@mail.com
+            %tr
+              %td Telephone
+              %td.information +00 123 123 1234
+            %tr
+              %td Address
+              %td.information One infinity loop, 54100, United States
+        .space-bottom
+        %table.table
+          %thead
+            %tr
+              %th{:colspan => "2"} Payment
+          %tbody
+            %tr
+              %td Credit Card
+              %td.information Visa ***917
+        .text-right
+          %a.btn.btn-group.btn-primary{:href => shop_payment_path}
+            %i.icon-left-open-big
+            Go Back
+          %a.btn.btn-group.btn-primary{:href => shop_complete_path}
+            %i.icon-check
+            Complete Your Order

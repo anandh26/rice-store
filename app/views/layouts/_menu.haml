@@ -1,0 +1,79 @@
+%ul.nav.navbar-nav
+  -@menu.each do |m|
+    %li.dropdown
+      =link_to m.name, m.url
+      -if m.sub_menus.present?
+        %ul.dropdown-menu
+          -m.sub_menus.each do |menu|
+            %li
+              =link_to menu.name, menu.url
+
+-#%ul.nav.navbar-nav
+-#  %li.dropdown.active
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => root_path} Home
+-#
+-#  %li.dropdown
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => shop_products_category_path('rice')} Rice
+-#    %ul.dropdown-menu
+-#      %li
+-#        %a{:href => shop_products_category_path('rice')} Rice
+-#      %li.active
+-#        %a{:href => shop_products_category_path('rice')} Rice 2
+-#      %li
+-#        %a{:href => shop_products_category_path('rice') } Rice 3
+-#  %li.dropdown
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => shop_products_category_path('cereals')} Cereals
+-#    %ul.dropdown-menu
+-#      %li
+-#        %a{:href => shop_products_category_path('cereals')} Cereals
+-#      %li.active
+-#        %a{:href => shop_products_category_path('cereals')} Cereals 2
+-#      %li
+-#        %a{:href => shop_products_category_path('cereals')} Cereals 3
+-#  %li.dropdown
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "blog-large-image-right-sidebar.html"} Blog
+-#    %ul.dropdown-menu
+-#      %li
+-#        %a{:href => "index-blog.html"}
+-#          Blog Home
+-#          %span.badge New
+-#      %li.dropdown
+-#        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Large Image
+-#        %ul.dropdown-menu.to-left
+-#          %li
+-#            %a{:href => "blog-large-image-right-sidebar.html"} Right Sidebar
+-#          %li
+-#            %a{:href => "blog-large-image-left-sidebar.html"} Left Sidebar
+-#          %li
+-#            %a{:href => "blog-large-image-no-sidebar.html"} Without Sidebar
+-#      %li.dropdown
+-#        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Medium Image
+-#        %ul.dropdown-menu.to-left
+-#          %li
+-#            %a{:href => "blog-medium-image-right-sidebar.html"} Right Sidebar
+-#          %li
+-#            %a{:href => "blog-medium-image-left-sidebar.html"} Left Sidebar
+-#          %li
+-#            %a{:href => "blog-medium-image-no-sidebar.html"} Without Sidebar
+-#      %li.dropdown
+-#        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} Masonry
+-#        %ul.dropdown-menu.to-left
+-#          %li
+-#            %a{:href => "blog-masonry-right-sidebar.html"} Right Sidebar
+-#          %li
+-#            %a{:href => "blog-masonry-left-sidebar.html"} Left Sidebar
+-#          %li
+-#            %a{:href => "blog-masonry-no-sidebar.html"} Without Sidebar
+-#      %li
+-#        %a{:href => "blog-timeline.html"} Timeline
+-#      %li
+-#        %a{:href => "blog-post.html"} Blog Post
+-#  %li.dropdown
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => contact_us_path} Contact-Us
+-#  %li.dropdown
+-#    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "blog-large-image-right-sidebar.html"} Sales
+-#    %ul.dropdown-menu
+-#      %li
+-#        %a{:href => "index-blog.html"}
+-#          Sales
+-#          %span.badge New

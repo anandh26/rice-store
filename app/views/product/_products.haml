@@ -1,0 +1,70 @@
+%section.section.light-gray-bg.clearfix
+  .container
+    .row
+      .col-md-8
+        %ul.nav.nav-pills{:role => "tablist"}
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#pill-1", :role => "tab", :title => "Latest Arrivals"}
+              %i.icon-star
+              Our Rice Brands
+        .tab-content.clear-style
+          -@products.each do |rice|
+            .listing-item.mb-20
+              .row.grid-space-0
+                .col-sm-6.col-md-4.col-lg-3
+                  .overlay-container
+                    -if rice.category_id == 1
+                      %img{:alt => "", :src => asset_path("products/rice/""#{rice.image}")}
+                        %a.overlay-link{:href => shop_products_detail_path(category: 'rice', id: rice.id)}
+                          %i.fa.fa-plus
+                    -else
+                      %img{:alt => "", :src => asset_path("products/cereals/""#{rice.image}")}
+                        %a.overlay-link{:href => shop_products_detail_path(category: 'rice', id: rice.id)}
+                          %i.fa.fa-plus
+                      %span.badge 30% OFF
+                .col-sm-6.col-md-8.col-lg-9
+                  .body
+                    %h3.margin-clear
+                      =link_to rice.title, shop_products_detail_path(category: 'rice', id: rice.id)
+                    %p
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star.text-default
+                      %i.fa.fa-star
+                      %a.btn-sm-link{:href => "#"}
+                        %i.icon-heart.pr-5>
+                        Add to Wishlist
+                      %a.btn-sm-link{:href => shop_products_detail_path(category: 'rice', id: rice.id)}
+                        %i.icon-link.pr-5>
+                        View Details
+                    %p= rice.description
+                    .light-gray-bg.p-20.bordered.clearfix
+                      %span.product.price
+                        %i.icon-tag.pr-10>
+                        %del.price-del
+                          %i.fa.fa-rupee.pr-10
+                          =rice.price.to_f
+                        %span.price
+                          %i.fa.fa-rupee
+                          = rice.price_actual.to_f
+                      .product.elements-list.pull-right.clearfix
+                        %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
+        %nav.text-center
+          %ul.pagination
+            %li
+              %a{"aria-label" => "Previous", :href => "#"}
+                %i.fa.fa-angle-left
+            %li.active
+              %a{:href => "#"} 1
+            %li
+              %a{:href => "#"} 2
+            %li
+              %a{:href => "#"} 3
+            %li
+              %a{:href => "#"} 4
+            %li
+              %a{:href => "#"} 5
+            %li
+              %a{"aria-label" => "Next", :href => "#"}
+                %i.fa.fa-angle-right

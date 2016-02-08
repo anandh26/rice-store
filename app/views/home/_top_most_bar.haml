@@ -1,0 +1,116 @@
+.header-top.dark
+  .container
+    .row
+      .col-xs-3.col-sm-6.col-md-9
+        .header-top-first.clearfix
+          %ul.social-links.circle.small.clearfix.hidden-xs
+            %li.twitter
+              %a{:href => "http://www.twitter.com", :target => "_blank"}
+                %i.fa.fa-twitter
+            %li.skype
+              %a{:href => "http://www.skype.com", :target => "_blank"}
+                %i.fa.fa-skype
+            %li.linkedin
+              %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                %i.fa.fa-linkedin
+            %li.googleplus
+              %a{:href => "http://plus.google.com", :target => "_blank"}
+                %i.fa.fa-google-plus
+            %li.youtube
+              %a{:href => "http://www.youtube.com", :target => "_blank"}
+                %i.fa.fa-youtube-play
+            %li.flickr
+              %a{:href => "http://www.flickr.com", :target => "_blank"}
+                %i.fa.fa-flickr
+            %li.facebook
+              %a{:href => "http://www.facebook.com", :target => "_blank"}
+                %i.fa.fa-facebook
+            %li.pinterest
+              %a{:href => "http://www.pinterest.com", :target => "_blank"}
+                %i.fa.fa-pinterest
+          .social-links.hidden-lg.hidden-md.hidden-sm.circle.small
+            .btn-group.dropdown
+              %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                %i.fa.fa-share-alt
+              %ul.dropdown-menu.dropdown-animation
+                %li.twitter
+                  %a{:href => "http://www.twitter.com", :target => "_blank"}
+                    %i.fa.fa-twitter
+                %li.skype
+                  %a{:href => "http://www.skype.com", :target => "_blank"}
+                    %i.fa.fa-skype
+                %li.linkedin
+                  %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                    %i.fa.fa-linkedin
+                %li.googleplus
+                  %a{:href => "http://plus.google.com", :target => "_blank"}
+                    %i.fa.fa-google-plus
+                %li.youtube
+                  %a{:href => "http://www.youtube.com", :target => "_blank"}
+                    %i.fa.fa-youtube-play
+                %li.flickr
+                  %a{:href => "http://www.flickr.com", :target => "_blank"}
+                    %i.fa.fa-flickr
+                %li.facebook
+                  %a{:href => "http://www.facebook.com", :target => "_blank"}
+                    %i.fa.fa-facebook
+                %li.pinterest
+                  %a{:href => "http://www.pinterest.com", :target => "_blank"}
+                    %i.fa.fa-pinterest
+          %ul.list-inline.hidden-sm.hidden-xs
+            %li
+              %i.fa.fa-map-marker.pr-5.pl-10>
+              One Infinity Loop Av, Tk 123456
+            %li
+              %i.fa.fa-phone.pr-5.pl-10>
+              +12 123 123 123
+            %li
+              %i.fa.fa-envelope-o.pr-5.pl-10
+              contactus@mail.com
+      .col-xs-9.col-sm-6.col-md-3
+        #header-top-second.clearfix
+          .header-top-dropdown.text-right
+            -if session[:user].present?
+              Welcome
+              %span.text-bold= session[:user]['user_name']
+              .btn-group
+                %a.btn.btn-default.btn-sm{:href => logout_path}
+                  %i.fa.fa-user.pr-10
+                  Sign Out
+            -else
+              .btn-group
+                %a.btn.btn-default.btn-sm{:href => user_register_path}
+                  %i.fa.fa-user.pr-10
+                  Sign Up
+              .btn-group.dropdown
+                %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-lock.pr-10
+                  Login
+                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                  %li
+                    %form.login-form.margin-clear
+                      .form-group.has-feedback
+                        %label.control-label Username
+                        %input.form-control{:placeholder => "", :type => "text"}
+                          %i.fa.fa-user.form-control-feedback
+                      .form-group.has-feedback
+                        %label.control-label Password
+                        %input.form-control{:placeholder => "", :type => "password"}
+                          %i.fa.fa-lock.form-control-feedback
+                      %button.btn.btn-primary.btn-sm{:type => "submit"} Log In
+                      %span.pl-5.pr-5 or
+                      %button.btn.btn-primary.btn-sm{:type => "submit"} Sign Up
+                      %ul
+                        %li
+                          %a{:href => "#"} Forgot your password?
+                      %span.text-center Login with
+                      %ul.social-links.circle.small.colored.clearfix
+                        %li.facebook
+                          %a{:href => "http://www.facebook.com", :target => "_blank"}
+                            %i.fa.fa-facebook
+                        %li.twitter
+                          %a{:href => "http://www.twitter.com", :target => "_blank"}
+                            %i.fa.fa-twitter
+                        %li.googleplus
+                          %a{:href => "http://plus.google.com", :target => "_blank"}
+                            %i.fa.fa-google-plus

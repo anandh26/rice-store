@@ -1,0 +1,81 @@
+.breadcrumb-container
+  .container
+    %ol.breadcrumb
+      %li
+        %i.fa.fa-home.pr-10
+        %a{:href => "index.html"} Home
+      %li.active Sign Up
+
+.main-container{:style => "background-image:url(#{asset_path('background-img-6.jpg')});"}
+  .container
+    .row
+      .box.box-info
+        .box-header.with-border
+          %h3.box-title Sign Up
+        = form_for(@user, url: '/user/register', method: :post, html: { id: 'registration-form', class: 'form-horizontal'})  do |f|
+          .box-body
+            -if flash[:error].present?
+              .callout.callout-danger
+                %h4 Error
+                %p
+                  =flash[:error]
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputName"}
+                User Name
+                %span.text-danger.small *
+              .col-sm-10
+                =f.text_field :user_name, class: 'required', :placeholder => 'User name', class: 'form-control'
+                %i.fa.fa-pencil.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputName"}
+                First Name
+                %span.text-danger.small *
+              .col-sm-10
+                =f.text_field :first_name, class: 'required', :placeholder => 'First Name', class: 'form-control'
+                %i.fa.fa-pencil.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputLastName"}
+                Last Name
+                %span.text-danger.small *
+              .col-sm-10
+                = f.text_field :last_name, class: 'required', :placeholder => 'Last Name', class: 'form-control'
+                %i.fa.fa-pencil.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputEmail"}
+                Email
+                %span.text-danger.small *
+              .col-sm-10
+                =f.text_field :email, class: 'required', :placeholder => 'Email', class: 'form-control'
+                %i.fa.fa-envelope.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputPassword"}
+                Password
+                %span.text-danger.small *
+              .col-sm-10
+                =f.password_field :password, class: 'required', :placeholder => 'Password', class: 'form-control'
+                %i.fa.fa-lock.form-control-feedback
+            .form-group.has-feedback
+              %label.col-sm-2.control-label{:for => "inputPassword"}
+                Confirm Password
+                %span.text-danger.small *
+              .col-sm-10
+                =f.password_field :confirm_password, class: 'required', :placeholder => 'Confirm Password', class: 'form-control'
+                %i.fa.fa-lock.form-control-feedback
+            .form-group
+              .col-sm-offset-2.col-sm-8
+                .checkbox
+                  %label
+                    %input{:required => "", :type => "checkbox", name: 'terms_and_conditions'}
+                      Accept our
+                      %a{:href => "#"} privacy policy
+                      and
+                      %a{:href => "#"} customer agreement
+          .box-footer
+            %button.btn.bg-maroon.btn-flat{:type => "submit"}
+              Sign Up
+            =link_to 'Sign-In', user_login_path, class: 'button btn bg-olive btn-flat pull-right'
+
+
+
+
+

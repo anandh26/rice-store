@@ -1,0 +1,185 @@
+%section.pv-30.light-gray-bg
+  .container
+    .row
+      .col-md-8
+        / Nav tabs
+        %ul.nav.nav-tabs.style-4{:role => "tablist"}
+          %li.active
+            %a{"aria-expanded" => "true", "data-toggle" => "tab", :href => "#h2tab1", :role => "tab"}
+              %i.fa.fa-files-o.pr-5>
+              Specifications
+          %li
+            %a{"aria-expanded" => "true", "data-toggle" => "tab", :href => "#h2tab2", :role => "tab"}
+              %i.fa.fa-files-o.pr-5>
+              Benefits
+          %li
+            %a{"aria-expanded" => "false", "data-toggle" => "tab", :href => "#h2tab3", :role => "tab"}
+              %i.fa.fa-star.pr-5>
+              (3) Reviews
+        .tab-content.padding-top-clear.padding-bottom-clear
+          #h2tab1.tab-pane.fade.active.in
+            %h4.space-top= @detail.title
+            %hr
+              %dl.dl-horizontal
+                %p= @detail.specification
+              %hr
+          #h2tab2.tab-pane.fade
+            %h4.space-top= @detail.title
+            %hr
+              %dl.dl-horizontal
+                %p= @detail.benefit
+              %hr
+          #h2tab3.tab-pane.fade
+            / comments start
+            .comments.margin-clear.space-top
+              / comment start
+              .comment.clearfix
+                .comment-avatar
+                  %img.img-circle{:alt => "avatar", :src => "images/avatar.jpg"}
+                %header
+                  %h3 Amazing!
+                  .comment-meta
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star
+                    | Today, 12:31
+                .comment-content
+                  .comment-body.clearfix
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    %a.btn-sm-link.link-dark.pull-right{:href => "blog-post.html"}
+                      %i.fa.fa-reply
+                      Reply
+              .comment.clearfix
+                .comment-avatar
+                  %img.img-circle{:alt => "avatar", :src => "images/avatar.jpg"}
+                %header
+                  %h3 Really Nice!
+                  .comment-meta
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star
+                    | Today, 10:31
+                .comment-content
+                  .comment-body.clearfix
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    %a.btn-sm-link.link-dark.pull-right{:href => "blog-post.html"}
+                      %i.fa.fa-reply
+                      Reply
+              .comment.clearfix
+                .comment-avatar
+                  %img.img-circle{:alt => "avatar", :src => "images/avatar.jpg"}
+                %header
+                  %h3 Worth to Buy!
+                  .comment-meta
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star.text-default
+                    %i.fa.fa-star
+                    | Today, 09:31
+                .comment-content
+                  .comment-body.clearfix
+                    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    %a.btn-sm-link.link-dark.pull-right{:href => "blog-post.html"}
+                      %i.fa.fa-reply
+                      Reply
+            .comments-form
+              %h2.title Add your Review
+              %form#comment-form{:role => "form"}
+                .form-group.has-feedback
+                  %label{:for => "name4"} Name
+                  %input#name4.form-control{:name => "name4", :placeholder => "", :required => "", :type => "text"}
+                    %i.fa.fa-user.form-control-feedback
+                .form-group.has-feedback
+                  %label{:for => "subject4"} Subject
+                  %input#subject4.form-control{:name => "subject4", :placeholder => "", :required => "", :type => "text"}
+                    %i.fa.fa-pencil.form-control-feedback
+                .form-group
+                  %label Rating
+                  %select#review.form-control
+                    %option{:value => "five"} 5
+                    %option{:value => "four"} 4
+                    %option{:value => "three"} 3
+                    %option{:value => "two"} 2
+                    %option{:value => "one"} 1
+                .form-group.has-feedback
+                  %label{:for => "message4"} Message
+                  %textarea#message4.form-control{:name => "message4", :placeholder => "", :required => "", :rows => "8"}
+                  %i.fa.fa-envelope-o.form-control-feedback
+                %input.btn.btn-default{:type => "submit", :value => "Submit"}
+      %aside.col-md-4.col-lg-3.col-lg-offset-1
+        .sidebar
+          .block.clearfix
+            %h3.title Related Products
+            .separator-2
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  %img.media-object{:alt => "blog-thumb", :src => "images/product-5.jpg"}
+                    %a.overlay-link.small{:href => "shop-product.html"}
+                      %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Lorem ipsum dolor sit amet
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                %p.price $99.00
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  %img.media-object{:alt => "blog-thumb", :src => "images/product-6.jpg"}
+                    %a.overlay-link.small{:href => "shop-product.html"}
+                      %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Eum repudiandae ipsam
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                %p.price $299.00
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  %img.media-object{:alt => "blog-thumb", :src => "images/product-7.jpg"}
+                    %a.overlay-link.small{:href => "shop-product.html"}
+                      %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Quia aperiam velit fuga
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                %p.price $9.99
+              %hr
+            .media.margin-clear
+              .media-left
+                .overlay-container
+                  %img.media-object{:alt => "blog-thumb", :src => "images/product-8.jpg"}
+                    %a.overlay-link.small{:href => "shop-product.html"}
+                      %i.fa.fa-link
+              .media-body
+                %h6.media-heading
+                  %a{:href => "shop-product.html"} Fugit non natus officiis
+                %p.margin-clear
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star.text-default
+                  %i.fa.fa-star
+                  %i.fa.fa-star
+                %p.price $399.00
