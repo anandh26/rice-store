@@ -23,7 +23,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
 
 group :production, :staging do
-  #gem 'pg'
+  gem 'pg'
 end
 
 group :test, :development do
@@ -48,9 +48,9 @@ group :test do
   gem 'rspec-rails', '3.3.3'
   gem 'capybara', '2.4.4'
   gem 'webmock'
- # gem 'poltergeist', '~> 1.6'
+  gem 'poltergeist', '~> 1.6'
   gem 'capybara-screenshot', '~> 1.0'
-  #gem 'simplecov'
+  gem 'simplecov'
   gem 'rack_session_access'
 end
 
