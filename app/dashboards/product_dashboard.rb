@@ -25,6 +25,7 @@ class ProductDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     seo_name: Field::String,
+    is_fixed_rate: Field::Boolean,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -61,5 +62,6 @@ class ProductDashboard < Administrate::BaseDashboard
     :stock,
     :stock_in_kilo,
     :seo_name,
+    :is_fixed_rate,
   ]
 end

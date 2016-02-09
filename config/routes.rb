@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
-
   root 'home#index'
 
   get 'shop-cart', to: 'product#shop_cart', as: :shop_cart
