@@ -15,7 +15,7 @@ module Services
     def visitor_id
       begin
         visitor = new_visitor_request
-        visitor.save
+        #visitor.save
         Services::Responses::RegistrationResponse.new(true, nil, visitor)
       rescue => ex
         Services::Responses::RegistrationResponse.new(false, 'an error occurred', nil)
