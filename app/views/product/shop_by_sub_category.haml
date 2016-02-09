@@ -7,7 +7,9 @@
       %li.active
         %a{:href => shop_products_category_path(category: params[:category])}
           =params[:category]
-
+      %li.active
+        %a{:href => shop_products_category_path(category: params[:category])}
+          =params[:sub_category]
 %section.main-container
   .container
     .row

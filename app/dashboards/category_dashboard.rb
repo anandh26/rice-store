@@ -20,6 +20,7 @@ class CategoryDashboard < Administrate::BaseDashboard
     rank: Field::Number,
     image_url: Field::String,
     url: Field::String,
+    seo_name: Field::String,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -51,5 +52,6 @@ class CategoryDashboard < Administrate::BaseDashboard
     :rank,
     :image_url,
     :url,
+    :seo_name,
   ]
 end

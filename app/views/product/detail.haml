@@ -4,6 +4,12 @@
       %li
         %i.fa.fa-home.pr-10
         %a{:href => root_path} Home
+      %li
+        %a{:href => shop_products_category_path(category: @detail.sub_category.category.seo_name)}
+          =@detail.sub_category.category.name
+      %li
+        %a{:href => shop_products_sub_category_path(category: @detail.sub_category.category.seo_name, sub_category: @detail.sub_category.seo_name)}
+          =@detail.sub_category.title
       %li.active= @detail.title
 
 %section.main-container
@@ -26,14 +32,9 @@
             .tab-content.clear-style
               #pill-1.tab-pane.active
                 .overlay-container.overlay-visible
-                  -if @detail.category_id == 1
-                    %img{:alt => "", :src => asset_path("products/rice/""#{@detail.image}")}
-                    %a.popup-img.overlay-link{:href => asset_path("products/rice/""#{@detail.image}"), :title => @detail.title}
-                      %i.icon-plus-1
-                  -else
-                    %img{:alt => "", :src => asset_path("products/cereals/""#{@detail.image}")}
-                    %a.popup-img.overlay-link{:href => asset_path("products/cereals/""#{@detail.image}"), :title => @detail.title}
-                      %i.icon-plus-1
+                  %img{:alt => "", :src => asset_path("products/""#{@detail.image}")}
+                  %a.popup-img.overlay-link{:href => asset_path("products/""#{@detail.image}"), :title => @detail.title}
+                    %i.icon-plus-1
               #pill-2.tab-pane
                 .embed-responsive.embed-responsive-16by9
                   %iframe.embed-responsive-item{:src => "//player.vimeo.com/video/29198414?byline=0&amp;portrait=0"}
@@ -85,7 +86,12 @@
               .light-gray-bg.p-20.bordered.clearfix
                 %span.product.price
                   %i.icon-tag.pr-10>
-                  $99.00
+                  %del.price-del
+                    %i.fa.fa-rupee.pr-10
+                    =@detail.price.to_f
+                  %span.price
+                    %i.fa.fa-rupee
+                    = @detail.price_actual.to_f
                 .product.elements-list.pull-right.clearfix
                   %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
 =render 'home/detail_specifications'

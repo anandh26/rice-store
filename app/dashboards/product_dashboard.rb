@@ -8,7 +8,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    category: Field::BelongsTo,
+    sub_category: Field::BelongsTo,
     id: Field::Number,
     title: Field::String,
     description: Field::Text,
@@ -24,6 +24,7 @@ class ProductDashboard < Administrate::BaseDashboard
     stock_in_kilo: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    seo_name: Field::String,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -32,7 +33,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :category,
+    :sub_category,
     :id,
     :title,
     :description,
@@ -46,7 +47,7 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :category,
+    :sub_category,
     :title,
     :description,
     :specification,
@@ -59,5 +60,6 @@ class ProductDashboard < Administrate::BaseDashboard
     :status,
     :stock,
     :stock_in_kilo,
+    :seo_name,
   ]
 end

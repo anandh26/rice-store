@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209152638) do
+ActiveRecord::Schema.define(version: 20160209182754) do
 
   create_table "carousels", force: :cascade do |t|
     t.text     "title"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160209152638) do
     t.integer  "rank"
     t.string   "image_url"
     t.string   "url"
+    t.string   "seo_name"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -71,12 +72,14 @@ ActiveRecord::Schema.define(version: 20160209152638) do
     t.boolean  "status"
     t.boolean  "stock"
     t.integer  "stock_in_kilo"
-    t.integer  "category_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "sub_category_id"
+    t.string   "seo_name"
+    t.boolean  "is_fixed_rate"
   end
 
-  add_index "products", ["category_id"], name: "index_products_on_category_id"
+  add_index "products", ["sub_category_id"], name: "index_products_on_sub_category_id"
 
   create_table "slide_contents", force: :cascade do |t|
     t.string   "title"
@@ -100,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160209152638) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "url"
+    t.string   "seo_name"
   end
 
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
