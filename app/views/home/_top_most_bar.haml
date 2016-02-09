@@ -60,7 +60,7 @@
           %ul.list-inline.hidden-sm.hidden-xs
             %li
               %i.fa.fa-map-marker.pr-5.pl-10>
-              One Infinity Loop Av, Tk 123456
+              Online Rice and Cereals Store
             %li
               %i.fa.fa-phone.pr-5.pl-10>
               +12 123 123 123
@@ -88,29 +88,18 @@
                   Login
                 %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
                   %li
-                    %form.login-form.margin-clear
+                    = form_tag :user_login, id: 'registration-form', class: 'form-horizontal' do
                       .form-group.has-feedback
                         %label.control-label Username
-                        %input.form-control{:placeholder => "", :type => "text"}
-                          %i.fa.fa-user.form-control-feedback
+                        =text_field_tag :email, params[:email], class: 'required', :placeholder => 'Email', class: 'form-control'
+                        %i.fa.fa-user.form-control-feedback
                       .form-group.has-feedback
                         %label.control-label Password
-                        %input.form-control{:placeholder => "", :type => "password"}
-                          %i.fa.fa-lock.form-control-feedback
-                      %button.btn.btn-primary.btn-sm{:type => "submit"} Log In
+                        =password_field_tag :password, params[:password], class: 'required', :placeholder => 'Password', class: 'form-control'
+                        %i.fa.fa-lock.form-control-feedback
+                      %button.btn.bg-olive.btn-flat{:type => "submit"} Log In
                       %span.pl-5.pr-5 or
-                      %button.btn.btn-primary.btn-sm{:type => "submit"} Sign Up
+                      =link_to 'Sign Up', registration_path, class: 'btn bg-olive btn-flat'
                       %ul
                         %li
                           %a{:href => "#"} Forgot your password?
-                      %span.text-center Login with
-                      %ul.social-links.circle.small.colored.clearfix
-                        %li.facebook
-                          %a{:href => "http://www.facebook.com", :target => "_blank"}
-                            %i.fa.fa-facebook
-                        %li.twitter
-                          %a{:href => "http://www.twitter.com", :target => "_blank"}
-                            %i.fa.fa-twitter
-                        %li.googleplus
-                          %a{:href => "http://plus.google.com", :target => "_blank"}
-                            %i.fa.fa-google-plus
