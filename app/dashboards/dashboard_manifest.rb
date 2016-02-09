@@ -16,6 +16,7 @@ class DashboardManifest
     :menus,
     :products,
     :slide_contents,
+    :sub_categories,
     :sub_menus,
     :users,
     :visitors,

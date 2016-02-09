@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery except: :create
 
   def menu
-    @menu = Menu.all.where(status: 't')
+    @menu = Category.all.where(status: 't').order(:rank)
   end
 
   def create_visitor_id

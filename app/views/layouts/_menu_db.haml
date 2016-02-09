@@ -1,0 +1,30 @@
+%ul.nav.navbar-nav
+  -@menu.each do |m|
+    %li.dropdown.mega-menu{:style => ""}
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        =m.icon.html_safe
+        =m.name
+      -if m.sub_categories.present?
+        %ul.dropdown-menu
+          %li
+            .row
+              .col-md-12
+                .row
+                  .col-sm-6.col-md-3.hidden-sm
+                    %h4.title=  "All our #{m.name} Brands"
+                    %p.mb-10= "The list of #{m.name} brands available in our shop"
+                    %img{:alt => "#{m.name} Brands", :src => asset_path(m.image_url)}
+                  .col-sm-6
+                    %h4.title="#{m.name} Brands"
+                    .divider
+                    %ul.menu
+                      -m.sub_categories.each do |menu|
+                        %li
+                          %a{:href => menu.url}
+                            =menu.icon.html_safe
+                            =menu.title
+
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => contact_us_path}
+      %i.icon-phone>
+      Contact-Us

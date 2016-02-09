@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class CategoryDashboard < Administrate::BaseDashboard
+class SubCategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,17 +8,16 @@ class CategoryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    sub_categories: Field::HasMany,
+    category: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
+    title: Field::String,
     teaser: Field::Text,
     description: Field::Text,
     status: Field::Boolean,
+    rank: Field::Number,
+    icon: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    icon: Field::String,
-    rank: Field::Number,
-    image_url: Field::String,
     url: Field::String,
   }
 
@@ -28,9 +27,9 @@ class CategoryDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :sub_categories,
+    :category,
     :id,
-    :name,
+    :title,
     :teaser,
   ]
 
@@ -42,14 +41,13 @@ class CategoryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :sub_categories,
-    :name,
+    :category,
+    :title,
     :teaser,
     :description,
     :status,
-    :icon,
     :rank,
-    :image_url,
+    :icon,
     :url,
   ]
 end
