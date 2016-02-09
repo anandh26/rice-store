@@ -17,34 +17,19 @@
         %h1.page-title Our Products
         .separator-2
         %ul.nav.nav-pills{:role => "tablist"}
-          -@products.each do |category_title, prods|
+          -(@products||[]).each do |category_title, prods|
             %li
               %a{"data-toggle" => "tab", :href => "#pill-#{category_title}", :role => "tab", :title => category_title}
                 %i.icon-star
                 = category_title
         .tab-content.clear-style
-          -@products.each do |category_title, prods|
+          -(@products||[]).each do |category_title, prods|
             %div.tab-pane.active{id: "pill-#{category_title}"}
               =render 'prods_tab', prods: prods, category_title: category_title
 
       %aside.col-md-4.col-lg-3.col-md-pull-8.col-lg-pull-9
         .sidebar
-          .block.clearfix
-            %h3.title Categories
-            .separator-2
-            %nav
-              %ul.nav.nav-pills.nav-stacked
-                -Category.all.each do |cat|
-                  %li
-                    =link_to cat.name, shop_products_category_path(category: cat.name.downcase)
-                %li
-                  %a{:href => "blog-large-image-right-sidebar.html"} Blog
-                %li
-                  %a{:href => "portfolio-grid-2-3-col.html"} Portfolio
-                %li
-                  %a{:href => "page-about.html"} About
-                %li
-                  %a{:href => "page-contact.html"} Contact
+          =render 'product/categories'
           .block.clearfix
             %h3.title Featured Products
             .separator-2

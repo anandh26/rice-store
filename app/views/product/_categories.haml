@@ -1,0 +1,14 @@
+.block.clearfix
+  %h3.title Categories
+  .separator-2
+  %nav
+    %ul.nav.nav-pills.nav-stacked
+      -Category.all.each do |cat|
+        %li
+          =link_to cat.name, shop_products_category_path(cat.seo_name)
+      %li
+        %a{:href => contact_us_path} About
+      %li
+        %a{:href => contact_us_path} Contact
+      %li
+        %a{:href => blog_path} Blog

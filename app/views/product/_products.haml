@@ -3,13 +3,13 @@
     .row
       .col-md-8
         %ul.nav.nav-pills{:role => "tablist"}
-          -@products.each do |category_title, prods|
+          -(@products||[]) do |category_title, prods|
             %li
               %a{"data-toggle" => "tab", :href => "#pill-#{category_title}", :role => "tab", :title => category_title}
                 %i.icon-star
                 = category_title
         .tab-content.clear-style
-          -@products.each do |category_title, prods|
+          -(@products||[]).each do |category_title, prods|
             -if category_title == 'Rice'
               %div.tab-pane.active{id: "pill-#{category_title}"}
                 =render 'prods_tab', prods: prods, category_title: category_title
