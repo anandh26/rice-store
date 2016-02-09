@@ -21,8 +21,7 @@
  *= require dashboard/plugins/fullcalendar
  *= require dashboard/plugins/ionicons.min
  *= require dashboard/plugins/select2
-  *= require dashboard/plugins/bootstrap-wysihtml.min
+ *= require dashboard/plugins/bootstrap-wysihtml.min
  *= require dashboard/new
  */
 
-@import "dashboard/skin.less";
