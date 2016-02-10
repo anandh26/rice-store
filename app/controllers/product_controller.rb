@@ -7,8 +7,6 @@ class ProductController < ApplicationController
     #
     join_query = Product.select('products.*, sub_categories.category_name').joins(:sub_category).where("products.status = 't'").order("CREATED_AT DESC").all
     @products = join_query.group_by(&:category_name)
-    p @products
-    p '@products@products@products'
   end
 
   def detail
@@ -16,8 +14,14 @@ class ProductController < ApplicationController
   end
 
   def shop_by_category
-    join_query = Product.select('products.*, sub_categories.*').joins(:sub_category).where("products.status = 't' and sub_categories.category_name = '#{ params[:category]}'").order("CREATED_AT DESC").all
-    @products = join_query.group_by(&:title)
+     join_query = Product.select('products.*, sub_categories.*').joins(:sub_category).where("products.status = 't' and sub_categories.category_name = '#{ params[:category]}'").order("CREATED_AT DESC").all
+     @products = join_query.group_by(&:sub_category_name)
+
+    # @products = Product.find_by_sql("
+    #           SELECT prod.id, sub_cat.*, cat.name as category_name, prod.* FROM products prod
+    #            INNER JOIN sub_categories sub_cat ON sub_cat.id = prod.sub_category_id
+    #               INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't'").group_by(&:sub_category_name)
+
   end
 
   def shop_by_sub_category
