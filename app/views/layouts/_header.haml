@@ -3,11 +3,13 @@
     .row
       .col-md-3
         .header-left.clearfix
-          #logo.logo
-            %a{:href => root_path}
-              %img#logo_img{:alt => "The Project", :src => asset_path("logo.png")}/
-          .site-slogan
-            Your online rice and cereals store
+          .header-dropdown-buttons.hidden-xs
+            .btn-group.dropdown
+              %a{:href => root_path}
+                %img#logo{:alt => "The Project", :src => asset_path("icons/rice.png")}
+            .btn-group.dropdown.text-bold.text-black
+              %a{:href => root_path}
+                VDS Rice & Cereals Store
       .col-md-9
         .header-right.clearfix
           .main-navigation.animated.with-dropdown-buttons

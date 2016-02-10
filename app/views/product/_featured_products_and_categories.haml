@@ -1,0 +1,16 @@
+%aside.col-md-4.col-lg-3.col-md-pull-8.col-lg-pull-9
+  .sidebar
+    =render 'product/categories'
+    .block.clearfix
+      %h3.title Featured Products
+      .separator-2
+      .owl-carousel.content-slider-with-controls-autoplay.owl-theme{:style => "opacity: 1; display: block;"}
+        -5.times do |f|
+          .overlay-container.overlay-visible
+            %img{:alt => "", :src => asset_path("rice_home_slider.jpg")}
+              .overlay-bottom.hidden-xs
+                .text
+                  %h3.title Caption Title
+                  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum optio odio, recusandae qui minima eveniet cumque praesentium expedita sint accusamus itaque.
+              %a.popup-img.overlay-link{:href => "images/portfolio-2.jpg", :title => "image title"}
+                %i.icon-plus-1

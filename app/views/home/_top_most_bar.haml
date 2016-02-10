@@ -1,4 +1,4 @@
-.header-top.dark
+.header-top.bg-olive
   .container
     .row
       .col-xs-3.col-sm-6.col-md-9
@@ -71,12 +71,20 @@
         #header-top-second.clearfix
           .header-top-dropdown.text-right
             -if session[:user].present?
-              Welcome
-              %span.text-bold= session[:user]['user_name']
-              .btn-group
-                %a.btn.btn-default.btn-sm{:href => logout_path}
-                  %i.fa.fa-user.pr-10
-                  Sign Out
+              .btn-group.dropdown
+                %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-lock.pr-10
+                  =session[:user]['user_name']
+                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                  %li.user-header
+                    %img.img-circle{:alt => "User Image", :src => asset_path("user2-160x160.jpg")}
+                      %p
+                        ="#{session[:user]['first_name']}, #{session[:user]['last_name']}"
+                  %li.user-footer
+                    .pull-left
+                      %a.btn.btn-default.btn-flat{:href => profile_path} Profile
+                    .pull-right
+                      %a.btn.btn-default.btn-flat{:href => logout_path} Sign out
             -else
               .btn-group
                 %a.btn.btn-default.btn-sm{:href => user_register_path}

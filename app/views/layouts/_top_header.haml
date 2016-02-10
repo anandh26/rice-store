@@ -1,0 +1,66 @@
+%header.main-header.bg.bg-light-blue
+  %nav.navbar.navbar-static-top
+    .container
+      .row
+        .col-md-3
+          #logo.logo
+            %a{:href => root_path}
+              %img#logo_img{:alt => "The Project", :src => asset_path("logo.png")}/
+          .site-slogan
+            Your online rice and cereals store
+        .col-md-9
+          #navbar-collapse.collapse.navbar-collapse.pull-left
+            %ul.nav.navbar-nav
+              %li.active
+                %a{:href => "#"}
+                  Link
+                  %span.sr-only (current)
+              %li
+                %a{:href => "#"} Link
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+                  Dropdown
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li
+                    %a{:href => "#"} Action
+                  %li
+                    %a{:href => "#"} Another action
+                  %li
+                    %a{:href => "#"} Something else here
+                  %li.divider
+                  %li
+                    %a{:href => "#"} Separated link
+                  %li.divider
+                  %li
+                    %a{:href => "#"} One more separated link
+            %form.navbar-form.navbar-left{:role => "search"}
+              .form-group
+                %input#navbar-search-input.form-control{:placeholder => "Search", :type => "text"}
+          / /.navbar-collapse
+          / Navbar Right Menu
+          .navbar-custom-menu
+            %ul.nav.navbar-nav
+              %li.dropdown.user.user-menu
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %img.user-image{:alt => "User Image", :src => "../../dist/img/user2-160x160.jpg"}
+                    %span.hidden-xs Alexander Pierce
+                %ul.dropdown-menu
+                  %li.user-header
+                    %img.img-circle{:alt => "User Image", :src => "../../dist/img/user2-160x160.jpg"}
+                      %p
+                        Alexander Pierce - Web Developer
+                        %small Member since Nov. 2012
+                  %li.user-body
+                    .row
+                      .col-xs-4.text-center
+                        %a{:href => "#"} Followers
+                      .col-xs-4.text-center
+                        %a{:href => "#"} Sales
+                      .col-xs-4.text-center
+                        %a{:href => "#"} Friends
+                  %li.user-footer
+                    .pull-left
+                      %a.btn.btn-default.btn-flat{:href => "#"} Profile
+                    .pull-right
+                      %a.btn.btn-default.btn-flat{:href => "#"} Sign out

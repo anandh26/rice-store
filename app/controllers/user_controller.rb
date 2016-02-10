@@ -36,4 +36,8 @@ class UserController < ApplicationController
       render :register
     end
   end
+
+  def profile
+
+  end
 end

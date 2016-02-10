@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209182754) do
+ActiveRecord::Schema.define(version: 20160210184940) do
 
   create_table "carousels", force: :cascade do |t|
     t.text     "title"
@@ -72,11 +72,12 @@ ActiveRecord::Schema.define(version: 20160209182754) do
     t.boolean  "status"
     t.boolean  "stock"
     t.integer  "stock_in_kilo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "sub_category_id"
     t.string   "seo_name"
     t.boolean  "is_fixed_rate"
+    t.string   "sub_category_name"
   end
 
   add_index "products", ["sub_category_id"], name: "index_products_on_sub_category_id"
@@ -100,10 +101,11 @@ ActiveRecord::Schema.define(version: 20160209182754) do
     t.integer  "rank"
     t.text     "icon"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "url"
     t.string   "seo_name"
+    t.string   "category_name"
   end
 
   add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"

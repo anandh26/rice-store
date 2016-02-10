@@ -4,6 +4,6 @@
   %ul.nav.nav-pills.nav-stacked.list-style-icons
     -Category.all.each do |cat|
       %li
-        %a{:href => "#"}
+        %a{:href => shop_products_category_path(:category => cat.seo_name)}
           %i.fa.fa-caret-right.pr-10>
           =cat.name

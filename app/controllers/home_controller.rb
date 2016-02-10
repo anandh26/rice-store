@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @products = Product.find_by_sql("
-             SELECT c.id, c.title, m.name as category_name, c.* FROM products c
-               INNER JOIN sub_categories u ON u.id = c.sub_category_id
-                 INNER JOIN categories m ON m.id = u.category_id where c.status = 't'").group_by(&:category_name)
+    join_query = Product.select('products.*, sub_categories.*').joins(:sub_category).where("products.status = 't'").order("CREATED_AT DESC").all
+    @products = join_query.group_by(&:category_name)
   end
 end

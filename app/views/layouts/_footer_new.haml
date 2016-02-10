@@ -1,0 +1,97 @@
+%footer#footer.clearfix
+  .footer
+    .container
+      .footer-inner
+        .row
+          .col-md-3
+            .footer-content
+              .logo-footer
+                .btn-group.dropdown
+                  %img#logo{:alt => "The Project", :src => asset_path("icons/rice.png")}/
+                .btn-group.dropdown.text-bold.text-black
+                  VDS Rice & Cereals Store
+              %p
+                Chennai-based online store that caters to our most basic requirement for life – food. We are specialists in India’s staple food, in most parts - rice & varieties of rice. Our uniqueness and forte is in our ability to provide to you the best quality rice, from our very own mills...
+                %a{:href => about_path}
+                  Learn More
+                  %i.fa.fa-long-arrow-right.pl-5
+              .separator-2
+
+          .col-md-3
+            .footer-content
+              %h2.title Our Products
+              .separator-2
+              -Category.all.each do |cat|
+                .media.margin-clear
+                  .media-left
+                    .overlay-container
+                      %img.media-object{:alt => cat.name, :src => asset_path(cat.image_url)}
+                        %a.overlay-link.small{:href =>  cat.url}
+                          %i.fa.fa-link
+                  .media-body
+                    %h6.media-heading
+                      %a{:href => cat.url}
+                        =cat.name
+                    %p.small.margin-clear
+                      %i.fa.fa-plus-circle.pl-5.pr-5>
+                      %a{:href => cat.url}
+                        Click More
+                  %hr
+          .col-md-3
+            .footer-content
+              %h2.title Other Info
+              .separator-2
+              .row.grid-space-10
+                %nav
+                  %ul.nav.nav-pills.nav-stacked
+                    %li
+                      %a{:href => privacy_path} Privacy
+                    %li
+                      %a{:href => terms_path} Terms
+                    %li
+                      %a{:href => about_path} About
+                    %li
+                      %a{:href => blog_path} Blog
+          .col-md-3
+            .footer-content
+              %h2.title Find Us
+              .separator-2
+              %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.
+              %ul.social-links.circle.animated-effect-1
+                %li.facebook
+                  %a{:href => "http://www.facebook.com", :target => "_blank"}
+                    %i.fa.fa-facebook
+                %li.twitter
+                  %a{:href => "http://www.twitter.com", :target => "_blank"}
+                    %i.fa.fa-twitter
+                %li.googleplus
+                  %a{:href => "http://plus.google.com", :target => "_blank"}
+                    %i.fa.fa-google-plus
+                %li.linkedin
+                  %a{:href => "http://www.linkedin.com", :target => "_blank"}
+                    %i.fa.fa-linkedin
+                %li.xing
+                  %a{:href => "http://www.xing.com", :target => "_blank"}
+                    %i.fa.fa-xing
+              .separator-2
+              %ul.list-icons
+                %li
+                  %i.fa.fa-map-marker.pr-10.text-default
+                  VDS Online Rice & Cereals Store
+                %li
+                  %i.fa.fa-phone.pr-10.text-default
+                  +00 1234567890
+                %li
+                  %a{:href => "mailto:info@theproject.com"}
+                    %i.fa.fa-envelope-o.pr-10>
+                    contact@theproject.com
+  .subfooter
+    .container
+      .subfooter-inner
+        .row
+          .col-md-12
+            %p.text-center
+              Copyright © 2015
+              = succeed "." do
+                %a{:href => "http://htmlcoder.me", :target => "_blank"} VDS Online Rice & Cereals Store
+              All Rights Reserved

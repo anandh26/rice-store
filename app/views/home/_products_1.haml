@@ -5,8 +5,8 @@
         %ul.nav.nav-pills{:role => "tablist"}
           -@products.each do |category_title, prods|
             %li
-              %a{"data-toggle" => "tab", :href => "#pill-#{category_title}", :role => "tab", :title => category_title}
-                %i.icon-star
+              %a{"data-toggle" => "tab", :href => "#pill-#{format_category_title(category_title)}", :role => "tab", :title => format_category_title(category_title)}
+                %i.icon-feather
                 = category_title
           %li
             %a{"data-toggle" => "tab", :href => "#pill-3", :role => "tab", :title => "Top Sellers"}
@@ -14,11 +14,11 @@
               Top Sellers
         .tab-content.clear-style
           -@products.each do |category_title, prods|
-            -if category_title == 'Rice'
-              %div.tab-pane.active{id: "pill-#{category_title}"}
+            -if category_title == 'rice'
+              %div.tab-pane.active{id: "pill-#{format_category_title(category_title)}"}
                 =render 'product/prods_tab', prods: prods.take(5), category_title: category_title
             -else
-              %div.tab-pane{id: "pill-#{category_title}"}
+              %div.tab-pane{id: "pill-#{format_category_title(category_title)}"}
                 =render 'product/prods_tab', prods: prods.take(5), category_title: category_title
           #pill-3.tab-pane
             -5.times do |i|

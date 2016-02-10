@@ -9,7 +9,6 @@ class SubCategoryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     category: Field::BelongsTo,
-    products: Field::HasMany,
     id: Field::Number,
     title: Field::String,
     teaser: Field::Text,
@@ -21,6 +20,7 @@ class SubCategoryDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     url: Field::String,
     seo_name: Field::String,
+    category_name: Field::String,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -30,9 +30,9 @@ class SubCategoryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :category,
-    :products,
     :id,
     :title,
+    :teaser,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,7 +44,6 @@ class SubCategoryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :category,
-    :products,
     :title,
     :teaser,
     :description,
@@ -53,5 +52,6 @@ class SubCategoryDashboard < Administrate::BaseDashboard
     :icon,
     :url,
     :seo_name,
+    :category_name,
   ]
 end

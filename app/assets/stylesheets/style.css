@@ -6984,3 +6984,16 @@ h6.media-heading {
         background: #000
     }
 }
+.resize-coming-soon
+{
+    height: 500px;
+    width: 500px;
+}
+#logo{
+    width: 50px;
+    height:50px;
+}
+.menu-icon{
+    height:20px;
+    background-image: url("icons/rice.png")
+}

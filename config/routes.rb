@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
     root controller: DashboardManifest::ROOT_DASHBOARD, action: :index
   end
+
   root 'home#index'
 
   get 'shop-cart', to: 'product#shop_cart', as: :shop_cart
@@ -21,11 +22,12 @@ Rails.application.routes.draw do
   get 'user/login', to: 'user#login', as: :user_login
   get 'user/sign-out', to: 'user#sign_out', as: :logout
   post 'user/sign-out', to: 'user#sign_out'
+  get 'user/profile', to: 'user#profile', as: :profile
 
   #products
   get 'shop-products', to: 'product#index', as: :shop_products
-  get 'shop-products/:category', to: 'product#shop_by_category', as: :shop_products_category
-  get 'shop-products/:category/:sub_category', to: 'product#shop_by_sub_category', as: :shop_products_sub_category
+  get '/:category', to: 'product#shop_by_category', as: :shop_products_category
+  get '/:category/:sub_category', to: 'product#shop_by_sub_category', as: :shop_products_sub_category
   get 'shop-products/:category/:sub_category/:seo_name', to: 'product#detail', as: :shop_products_detail
 
   #contact
@@ -34,6 +36,9 @@ Rails.application.routes.draw do
 
   #blog
   get 'blog', to: 'blog#index', as: :blog
+  get 'about', to: 'blog#index', as: :about
+  get 'privacy', to: 'blog#index', as: :privacy
+  get 'terms-and-conditions', to: 'blog#index', as: :terms
 
   #sale
   get 'sales', to: 'sale#index', as: :sale

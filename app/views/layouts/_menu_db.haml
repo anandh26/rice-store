@@ -1,7 +1,7 @@
 %ul.nav.navbar-nav
   -@menu.each do |m|
     %li.dropdown.mega-menu{:style => ""}
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => shop_products_category_path(category: m.seo_name)}
         =m.icon.html_safe
         =m.name
       -if m.sub_categories.present?
@@ -20,7 +20,7 @@
                     %ul.menu
                       -m.sub_categories.each do |menu|
                         %li
-                          %a{:href => menu.url}
+                          %a{:href => shop_products_sub_category_path(category: menu.category_name, sub_category: menu.seo_name)}
                             =menu.icon.html_safe
                             =menu.title
 

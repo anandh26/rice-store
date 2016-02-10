@@ -2,35 +2,8 @@
   .container
     .row
       .col-md-8
-        %ul.nav.nav-pills{:role => "tablist"}
-          -(@products||[]).each do |category_title, prods|
-            %li
-              %a{"data-toggle" => "tab", :href => "#pill-#{category_title}", :role => "tab", :title => category_title}
-                %i.icon-star
-                = category_title
-        .tab-content.clear-style
-          -(@products||[]).each do |category_title, prods|
-            -if category_title == 'Rice'
-              %div.tab-pane.active{id: "pill-#{category_title}"}
-                =render 'prods_tab', prods: prods, category_title: category_title
-            -else
-              %div.tab-pane{id: "pill-#{category_title}"}
-                =render 'prods_tab', prods: prods, category_title: category_title
-          -#%nav.text-center
-          -#  %ul.pagination
-          -#    %li
-          -#      %a{"aria-label" => "Previous", :href => "#"}
-          -#        %i.fa.fa-angle-left
-          -#    %li.active
-          -#      %a{:href => "#"} 1
-          -#    %li
-          -#      %a{:href => "#"} 2
-          -#    %li
-          -#      %a{:href => "#"} 3
-          -#    %li
-          -#      %a{:href => "#"} 4
-          -#    %li
-          -#      %a{:href => "#"} 5
-          -#    %li
-          -#      %a{"aria-label" => "Next", :href => "#"}
-          -#        %i.fa.fa-angle-right
+        -if @products.length == 0
+          .overlay-container
+            %img.resize-coming-soon{:alt => "", :src => asset_path("coming-soon.jpg")}
+        -else
+          =render 'inner_products'
