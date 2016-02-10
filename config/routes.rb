@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get 'shop-products', to: 'product#index', as: :shop_products
   get '/:category', to: 'product#shop_by_category', as: :shop_products_category
   get '/:category/:sub_category', to: 'product#shop_by_sub_category', as: :shop_products_sub_category
-  get 'shop-products/:category/:sub_category/:seo_name', to: 'product#detail', as: :shop_products_detail
+  get '/:category/:sub_category/:seo_name', to: 'product#detail', as: :shop_products_detail
 
   #contact
   get 'contact-us', to: 'contact#index', as: :contact_us
