@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ProductDashboard < Administrate::BaseDashboard
+class ShoppingCartProductDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,26 +8,17 @@ class ProductDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    sub_category: Field::BelongsTo,
+    shopping_cart: Field::BelongsTo,
     id: Field::Number,
-    title: Field::String,
-    description: Field::Text,
-    specification: Field::Text,
-    benefit: Field::Text,
-    image: Field::String,
-    video: Field::String,
+    product_title: Field::String,
+    product_description: Field::Text,
     price: Field::Number.with_options(decimals: 2),
-    price_actual: Field::String,
-    rating: Field::Number,
+    quantity: Field::Number,
+    total: Field::Number.with_options(decimals: 2),
     status: Field::Boolean,
-    stock: Field::Boolean,
-    stock_in_kilo: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    seo_name: Field::String,
-    is_fixed_rate: Field::Boolean,
-    sub_category_name: Field::String,
-    brand: Field::String,
+    product_did: Field::Number,
   }
 
   # COLLECTION_ATTRIBUTES
@@ -36,10 +27,10 @@ class ProductDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :sub_category,
+    :shopping_cart,
     :id,
-    :title,
-    :description,
+    :product_title,
+    :product_description,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -50,22 +41,13 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :sub_category,
-    :title,
-    :description,
-    :specification,
-    :benefit,
-    :image,
-    :video,
+    :shopping_cart,
+    :product_title,
+    :product_description,
     :price,
-    :price_actual,
-    :rating,
+    :quantity,
+    :total,
     :status,
-    :stock,
-    :stock_in_kilo,
-    :seo_name,
-    :is_fixed_rate,
-    :sub_category_name,
-    :brand,
+    :product_did,
   ]
 end

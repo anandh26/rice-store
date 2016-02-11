@@ -15,6 +15,8 @@ class DashboardManifest
     :contacts,
     :menus,
     :products,
+    :shopping_carts,
+    :shopping_cart_products,
     :slide_contents,
     :sub_categories,
     :sub_menus,
