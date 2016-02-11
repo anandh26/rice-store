@@ -1,0 +1,30 @@
+%ul.dropdown-menu.dropdown-menu-right.dropdown-animation.cart
+  %li
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.quantity QTY
+          %th.product Product
+          %th.amount Subtotal
+      %tbody
+        -(@shop_cart.shopping_cart_products||[]).each do |item|
+          %tr
+            %td.quantity= "#{item.quantity} x"
+            %td.product
+              %a{:href => "shop-product.html"}
+                =item.product_title
+              %span.small= item.product_description[1..10]
+            %td.amount
+              %span
+                %i.fa.fa-rupee
+                =price_with_quantity(item.price, item.quantity)
+        %tr
+          %td.total-quantity{:colspan => "2"}
+            ="Total #{ @shop_cart.shopping_cart_products.length } Items"
+          %td.total-amount
+            %span
+              %i.fa.fa-rupee.pr-5
+              = total_products_price(@shop_cart.shopping_cart_products)
+    .panel-body.text-right
+      %a.btn.btn-group.bg-olive.btn-sm{:href => shop_cart_path } View Cart
+      %a.btn.btn-group.bg-olive.btn-sm{:href => shop_checkout_path} Checkout

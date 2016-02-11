@@ -82,9 +82,9 @@
                         ="#{session[:user]['first_name']}, #{session[:user]['last_name']}"
                   %li.user-footer
                     .pull-left
-                      %a.btn.btn-default.btn-flat{:href => profile_path} Profile
+                      %a.btn.bg-olive.btn-flat{:href => profile_path} Profile
                     .pull-right
-                      %a.btn.btn-default.btn-flat{:href => logout_path} Sign out
+                      %a.btn.bg-olive.btn-flat{:href => logout_path} Sign out
             -else
               .btn-group
                 %a.btn.btn-default.btn-sm{:href => user_register_path}

@@ -9,14 +9,9 @@
 %section.main-container
   .container
     .row
-      / main start
-      / ================
       .main.col-md-12
-        / page-title start
-        / ================
         %h1.page-title Checkout Review
         .separator-2
-        / page-title end
         %table.table.cart
           %thead
             %tr
@@ -25,43 +20,37 @@
               %th Quantity
               %th.amount Total
           %tbody
-            %tr
-              %td.product
-                %a{:href => "shop-product.html"} Product Title 1
-                %small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
-              %td.price $99.50
-              %td.quantity
-                .form-group
-                  %input.form-control{:disabled => "", :type => "text", :value => "2"}
-              %td.amount $199.00
-            %tr
-              %td.product
-                %a{:href => "shop-product.html"} Product Title 2
-                %small Quas inventore modi
-              %td.price $99.66
-              %td.quantity
-                .form-group
-                  %input.form-control{:disabled => "", :type => "text", :value => "3"}
-              %td.amount $299.00
-            %tr
-              %td.product
-                %a{:href => "shop-product.html"} Product Title 3
-                %small Fugiat nemo enim officiis repellendus
-              %td.price $499.66
-              %td.quantity
-                .form-group
-                  %input.form-control{:disabled => "", :type => "text", :value => "3"}
-              %td.amount $1499.00
-            %tr
+            - @shop_cart.shopping_cart_products.each do |item|
+              %tr
+                %td.product
+                  %a{:href => "shop-product.html"}
+                    =item.product_title
+                  %small= item.product_description
+                %td.price
+                  %span
+                    %i.fa.fa-rupee.pr-5
+                    = item.price
+                %td.quantity
+                  .form-group
+                    %input.form-control{:disabled => "", :type => "text", :value => item.quantity}
+                %td.amount
+                  %span
+                    %i.fa.fa-rupee.pr-5
+                    = price_with_quantity(item.price, item.quantity)
+            %tr.hide
               %td.total-quantity{:colspan => "3"} Subtotal
               %td.amount $1997.00
-            %tr
+            %tr.hide
               %td.total-quantity{:colspan => "2"} Discount Coupon
               %td.price TheProject25672
               %td.amount -20%
             %tr
-              %td.total-quantity{:colspan => "3"} Total 8 Items
-              %td.total-amount $1597.00
+              %td.total-quantity{:colspan => "3"}
+                ="Total #{ @shop_cart.shopping_cart_products.count } Items"
+              %td.total-amount
+                %span
+                  %i.fa.fa-rupee.pr-5
+                    = total_products_price(@shop_cart.shopping_cart_products)
         .space-bottom
         %table.table
           %thead
@@ -70,37 +59,24 @@
           %tbody
             %tr
               %td Full Name
-              %td.information John Doe
+              %td.information
+                = "#{@shop_cart.first_name} #{@shop_cart.last_name} "
             %tr
               %td Email
-              %td.information johndoe@mail.com
+              %td.information
+                = @shop_cart.email
             %tr
               %td Telephone
-              %td.information +00 123 123 1234
+              %td.information
+                = @shop_cart.telephone
             %tr
               %td Address
-              %td.information One infinity loop, 54100, United States
+              %td.information
+                = "#{@shop_cart.address1} #{@shop_cart.address2}, #{@shop_cart.city}, #{@shop_cart.zip_code}, #{@shop_cart.country}"
             %tr
               %td Additional Info
-              %td.information Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum accusamus pariatur odit neque.
-        .space-bottom
-        %table.table
-          %thead
-            %tr
-              %th{:colspan => "2"} Shipping Information
-          %tbody
-            %tr
-              %td Full Name
-              %td.information John Doe
-            %tr
-              %td Email
-              %td.information johndoe@mail.com
-            %tr
-              %td Telephone
-              %td.information +00 123 123 1234
-            %tr
-              %td Address
-              %td.information One infinity loop, 54100, United States
+              %td.information
+                = @shop_cart.additional_info
         .space-bottom
         %table.table
           %thead
@@ -108,12 +84,11 @@
               %th{:colspan => "2"} Payment
           %tbody
             %tr
-              %td Credit Card
-              %td.information Visa ***917
+              %td Cash After Delivery
         .text-right
-          %a.btn.btn-group.btn-primary{:href => shop_payment_path}
+          %a.btn.btn-group.bg-olive{:href => shop_payment_path}
             %i.icon-left-open-big
             Go Back
-          %a.btn.btn-group.btn-primary{:href => shop_complete_path}
+          %a.btn.btn-group.bg-olive{:href => shop_complete_path}
             %i.icon-check
             Complete Your Order

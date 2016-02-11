@@ -37,37 +37,9 @@
                     .btn-group.dropdown
                       %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
                         %i.icon-basket-1
-                        %span.cart-count.default-bg 8
-                      %ul.dropdown-menu.dropdown-menu-right.dropdown-animation.cart
-                        %li
-                          %table.table.table-hover
-                            %thead
-                              %tr
-                                %th.quantity QTY
-                                %th.product Product
-                                %th.amount Subtotal
-                            %tbody
-                              %tr
-                                %td.quantity 2 x
-                                %td.product
-                                  %a{:href => "shop-product.html"} Android 4.4 Smartphone
-                                  %span.small 4.7" Dual Core 1GB
-                                %td.amount $199.00
-                              %tr
-                                %td.quantity 3 x
-                                %td.product
-                                  %a{:href => "shop-product.html"} Android 4.2 Tablet
-                                  %span.small 7.3" Quad Core 2GB
-                                %td.amount $299.00
-                              %tr
-                                %td.quantity 3 x
-                                %td.product
-                                  %a{:href => "shop-product.html"} Desktop PC
-                                  %span.small Quad Core 3.2MHz, 8GB RAM, 1TB Hard Disk
-                                %td.amount $1499.00
-                              %tr
-                                %td.total-quantity{:colspan => "2"} Total 8 Items
-                                %td.total-amount $1997.00
-                          .panel-body.text-right
-                            %a.btn.btn-group.bg-olive.btn-sm{:href => shop_cart_path } View Cart
-                            %a.btn.btn-group.bg-olive.btn-sm{:href => shop_checkout_path} Checkout
+                        %span.cart-count.default-bg
+                          -if @shop_cart.present? && @shop_cart.shopping_cart_products.present?
+                            =@shop_cart.shopping_cart_products.count
+                          -else
+                            0
+                      =render 'layouts/basket_header'

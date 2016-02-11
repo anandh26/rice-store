@@ -1,0 +1,13 @@
+.modal.fade.bs-example-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", :role => "dialog", :style => "display: none;", :tabindex => "-1"}
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        %h4#mySmallModalLabel.modal-title Your Basket
+      .modal-body
+        %p Your product has been added successfully.
+      .modal-footer
+        %button.btn.btn-sm.btn-dark{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-sm.btn-default{:type => "button"} Save changes

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210184940) do
+ActiveRecord::Schema.define(version: 20160211202003) do
 
   create_table "carousels", force: :cascade do |t|
     t.text     "title"
@@ -78,9 +78,50 @@ ActiveRecord::Schema.define(version: 20160210184940) do
     t.string   "seo_name"
     t.boolean  "is_fixed_rate"
     t.string   "sub_category_name"
+    t.string   "brand"
   end
 
   add_index "products", ["sub_category_id"], name: "index_products_on_sub_category_id"
+
+  create_table "shopping_cart_products", force: :cascade do |t|
+    t.string   "product_title"
+    t.text     "product_description"
+    t.float    "price"
+    t.integer  "quantity"
+    t.float    "total"
+    t.boolean  "status"
+    t.integer  "shopping_cart_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "product_did"
+  end
+
+  add_index "shopping_cart_products", ["shopping_cart_id"], name: "index_shopping_cart_products_on_shopping_cart_id"
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.string   "unique_id"
+    t.string   "discount_coupon"
+    t.integer  "discount_percentage"
+    t.integer  "total_items"
+    t.float    "sub_total"
+    t.float    "total"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "telephone"
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "zip_code"
+    t.string   "country"
+    t.string   "additional_info"
+    t.string   "payment_type"
+    t.boolean  "status"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "order_status"
+  end
 
   create_table "slide_contents", force: :cascade do |t|
     t.string   "title"
