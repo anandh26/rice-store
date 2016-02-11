@@ -100,5 +100,43 @@ $(function() {
     }
   })
 
+  $("#add-cart").length > 0 && $("#add-cart").validate({
+    submitHandler: function(o)
+    {
+      $.ajax({
+        type: "POST",
+        url: "/add-cart",
+        data: {
+          product_id: $("#product_id").val(),
+          quantity: $("#quantity").val()
+        },
+        dataType: "json",
+        success: function(o) {
+          if (o.done == 'true'){
+            //$(".submit-button").removeClass("btn-default").addClass("btn-primary")
+          }
+        }
+      })
+    },
+    errorPlacement: function(e, o) {
+      e.insertBefore(o)
+    }
+  });
+
+  $(".btn-remove").click(function() {
+    $(this).closest(".remove-data").remove();
+    $.ajax({
+      type: "POST",
+      url: "/remove-cart",
+      data: {
+        id:  $(this).closest('tr').attr('id')
+      },
+      dataType: "json",
+      success: function(o) {
+        if (o.done == 'true'){
+        }
+      }
+    })
+  })
 });
 

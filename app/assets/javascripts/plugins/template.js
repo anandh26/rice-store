@@ -922,8 +922,6 @@ function print_window() {
                     x: 20
                 }
             }), !1
-        }), e(".btn-remove").click(function() {
-            e(this).closest(".remove-data").remove()
         }), e("#shipping-info-check").is(":checked") && e("#shipping-information").hide(), e("#shipping-info-check").change(function() {
             e(this).is(":checked"), e("#shipping-information").slideToggle()
         }), e(".full-image-overlay").length > 0 && (overlayHeight = e(".full-image-overlay").outerHeight(), e(".full-image-overlay").css("marginTop", -overlayHeight / 2)), e(".header-top .dropdown-menu input").click(function(e) {

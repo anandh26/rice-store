@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_title: MyString
+  product_description: MyText
+  price: 1.5
+  quantity: 1
+  total: 1.5
+  status: false
+  shopping_cart_id: 
+
+two:
+  product_title: MyString
+  product_description: MyText
+  price: 1.5
+  quantity: 1
+  total: 1.5
+  status: false
+  shopping_cart_id: 

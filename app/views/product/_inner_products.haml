@@ -14,7 +14,7 @@
   -(@products||[]).each_with_index do |(category_title, prods), index|
     -if index == 0
       %div.tab-pane.active{id: "pill-#{format_category_title(category_title)}"}
-        =render 'prods_tab', prods: prods, category_title: category_title
+        =render 'product/prods_tab', prods: prods, category_title: category_title
     -else
       %div.tab-pane{id: "pill-#{format_category_title(category_title)}"}
-        =render 'prods_tab', prods: prods, category_title: category_title
+        =render 'product/prods_tab', prods: prods, category_title: category_title

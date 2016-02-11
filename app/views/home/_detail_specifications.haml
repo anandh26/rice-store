@@ -19,6 +19,7 @@
         .tab-content.padding-top-clear.padding-bottom-clear
           #h2tab1.tab-pane.fade.active.in
             %h4.space-top= @detail.title
+            =hidden_field_tag :product_id, @detail.id
             %hr
               %dl.dl-horizontal
                 %p= @detail.specification
@@ -30,9 +31,7 @@
                 %p= @detail.benefit
               %hr
           #h2tab3.tab-pane.fade
-            / comments start
             .comments.margin-clear.space-top
-              / comment start
               .comment.clearfix
                 .comment-avatar
                   %img.img-circle{:alt => "avatar", :src => "images/avatar.jpg"}

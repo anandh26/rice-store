@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unique_id: MyString
+  discount_coupon: MyString
+  discount_percentage: 1
+  total_items: 1
+  sub_total: 1.5
+  total: 1.5
+  first_name: MyString
+  last_name: MyString
+  telephone: MyString
+  user_name: MyString
+  email: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  zip_code: MyString
+  country: MyString
+  additional_info: MyString
+  payment_type: MyString
+  status: false
+
+two:
+  unique_id: MyString
+  discount_coupon: MyString
+  discount_percentage: 1
+  total_items: 1
+  sub_total: 1.5
+  total: 1.5
+  first_name: MyString
+  last_name: MyString
+  telephone: MyString
+  user_name: MyString
+  email: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  zip_code: MyString
+  country: MyString
+  additional_info: MyString
+  payment_type: MyString
+  status: false

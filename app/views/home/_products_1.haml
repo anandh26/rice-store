@@ -14,7 +14,7 @@
               Top Sellers
         .tab-content.clear-style
           -@products.each do |category_title, prods|
-            -if category_title == 'rice'
+            -if category_title.downcase == 'rice'
               %div.tab-pane.active{id: "pill-#{format_category_title(category_title)}"}
                 =render 'product/prods_tab', prods: prods.take(5), category_title: category_title
             -else

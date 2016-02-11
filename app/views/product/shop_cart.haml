@@ -1,14 +1,9 @@
 %section.main-container
   .container
     .row
-      / main start
-      / ================
       .main.col-md-12
-        / page-title start
-        / ================
         %h1.page-title Shopping Cart
         .separator-2
-        / page-title end
         %table.table.cart.table-hover.table-colored
           %thead
             %tr
@@ -18,26 +13,38 @@
               %th Remove
               %th.amount Total
           %tbody
-            -5.times do |i|
-              %tr.remove-data
+            -@shop_cart.shopping_cart_products.each do |item|
+              %tr.remove-data{id: item.id}
+                =hidden_field_tag :product_did, item.product_did
                 %td.product
-                  %a{:href => "shop-product.html"} Product Title 1
-                  %small Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas inventore modi.
-                %td.price $99.50
+                  %a{:href => "shop-product.html"}
+                    =item.product_title
+                  %small= item.product_description
+                %td.price
+                  %span
+                    %i.fa.fa-rupee.pr-5
+                    = item.price
                 %td.quantity
                   .form-group
-                    %input.form-control{:type => "text", :value => "2"}
+                    %input.form-control{:type => "text", :value => item.quantity}
                 %td.remove
-                  %a.btn.btn-remove.btn-sm.btn-primary Remove
-                %td.amount $199.00
+                  %a.btn.btn-remove.btn-sm.bg-olive Remove
+                %td.amount
+                  %span
+                    %i.fa.fa-rupee.pr-5
+                    =price_with_quantity(item.price, item.quantity)
             %tr
               %td{:colspan => "3"} Discount Coupon
               %td{:colspan => "2"}
                 .form-group
                   %input.form-control{:type => "text"}
             %tr
-              %td.total-quantity{:colspan => "4"} Total 8 Items
-              %td.total-amount $1997.00
+              %td.total-quantity{:colspan => "4"}
+                ="Total #{ @shop_cart.shopping_cart_products.length } Items"
+              %td.total-amount
+                %span
+                  %i.fa.fa-rupee.pr-5
+                  = total_products_price(@shop_cart.shopping_cart_products)
         .text-right
-          %a.btn.btn-group.btn-primary{:href => shop_cart_path} Update Cart
-          %a.btn.btn-group.btn-primary{:href => shop_checkout_path} Checkout
+          %a.btn.btn-group.bg-olive{:href => shop_cart_path} Update Cart
+          %a.btn.btn-group.bg-olive{:href => shop_checkout_path} Checkout

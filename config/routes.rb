@@ -29,6 +29,11 @@ Rails.application.routes.draw do
   get '/:category', to: 'product#shop_by_category', as: :shop_products_category
   get '/:category/:sub_category', to: 'product#shop_by_sub_category', as: :shop_products_sub_category
   get '/:category/:sub_category/:seo_name', to: 'product#detail', as: :shop_products_detail
+  post 'add-cart', to: 'product#add_cart', as: :add_cart
+  post 'remove-cart', to: 'product#remove_cart', as: :remove_cart
+  post 'update-checkout-cart', to: 'product#update_checkout_cart', as: :update_checkout_cart
+  post 'update-shop-payment', to: 'product#update_shop_payment', as: :update_shop_payment
+  post 'update-shop-review', to: 'product#update_shop_review', as: :update_shop_review
 
   #contact
   get 'contact-us', to: 'contact#index', as: :contact_us
