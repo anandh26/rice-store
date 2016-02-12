@@ -30,7 +30,7 @@ INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't
   end
 
   def shop_cart
-    @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't')
+    @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
   end
 
   def add_cart
