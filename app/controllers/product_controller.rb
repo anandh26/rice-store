@@ -96,7 +96,7 @@ INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't
   end
 
   def update_shop_payment
-    shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'order_status')
+    shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
     if shop_cart.present?
       shop_cart.payment_type = 'cash'
       shop_cart.save
@@ -105,11 +105,11 @@ INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't
   end
 
   def shop_review
-    @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'order_status')
+    @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
   end
 
   def update_shop_review
-    shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'order_status')
+    shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
     if shop_cart.present?
       shop_cart.order_status = 'done'
       shop_cart.save
