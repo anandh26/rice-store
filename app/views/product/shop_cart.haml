@@ -13,38 +13,39 @@
               %th Remove
               %th.amount Total
           %tbody
-            -@shop_cart.shopping_cart_products.each do |item|
-              %tr.remove-data{id: item.id}
-                =hidden_field_tag :product_did, item.product_did
-                %td.product
-                  %a{:href => "shop-product.html"}
-                    =item.product_title
-                  %small= item.product_description
-                %td.price
-                  %span
-                    %i.fa.fa-rupee.pr-5
-                    = item.price
-                %td.quantity
+            -if @shop_cart.present?
+              -@shop_cart.shopping_cart_products.each do |item|
+                %tr.remove-data{id: item.id}
+                  =hidden_field_tag :product_did, item.product_did
+                  %td.product
+                    %a{:href => "shop-product.html"}
+                      =item.product_title
+                    %small= item.product_description
+                  %td.price
+                    %span
+                      %i.fa.fa-rupee.pr-5
+                      = item.price
+                  %td.quantity
+                    .form-group
+                      %input.form-control{:type => "text", :value => item.quantity}
+                  %td.remove
+                    %a.btn.btn-remove.btn-sm.bg-olive Remove
+                  %td.amount
+                    %span
+                      %i.fa.fa-rupee.pr-5
+                      =price_with_quantity(item.price, item.quantity)
+              %tr
+                %td{:colspan => "3"} Discount Coupon
+                %td{:colspan => "2"}
                   .form-group
-                    %input.form-control{:type => "text", :value => item.quantity}
-                %td.remove
-                  %a.btn.btn-remove.btn-sm.bg-olive Remove
-                %td.amount
+                    %input.form-control{:type => "text"}
+              %tr
+                %td.total-quantity{:colspan => "4"}
+                  ="Total #{ @shop_cart.shopping_cart_products.length } Items"
+                %td.total-amount
                   %span
                     %i.fa.fa-rupee.pr-5
-                    =price_with_quantity(item.price, item.quantity)
-            %tr
-              %td{:colspan => "3"} Discount Coupon
-              %td{:colspan => "2"}
-                .form-group
-                  %input.form-control{:type => "text"}
-            %tr
-              %td.total-quantity{:colspan => "4"}
-                ="Total #{ @shop_cart.shopping_cart_products.length } Items"
-              %td.total-amount
-                %span
-                  %i.fa.fa-rupee.pr-5
-                  = total_products_price(@shop_cart.shopping_cart_products)
+                    = total_products_price(@shop_cart.shopping_cart_products)
         .text-right
           %a.btn.btn-group.bg-olive{:href => shop_cart_path} Update Cart
           %a.btn.btn-group.bg-olive{:href => shop_checkout_path} Checkout
