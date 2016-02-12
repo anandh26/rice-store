@@ -13,7 +13,7 @@
               %th Remove
               %th.amount Total
           %tbody
-            -if @shop_cart.present?
+            -if @shop_cart && @shop_cart.shopping_cart_products.present?
               -@shop_cart.shopping_cart_products.each do |item|
                 %tr.remove-data{id: item.id}
                   =hidden_field_tag :product_did, item.product_did
@@ -47,5 +47,6 @@
                     %i.fa.fa-rupee.pr-5
                     = total_products_price(@shop_cart.shopping_cart_products)
         .text-right
-          %a.btn.btn-group.bg-olive{:href => shop_cart_path} Update Cart
-          %a.btn.btn-group.bg-olive{:href => shop_checkout_path} Checkout
+          -if @shop_cart && @shop_cart.shopping_cart_products.present?
+            %a.btn.btn-group.bg-olive{:href => shop_cart_path} Update Cart
+            %a.btn.btn-group.bg-olive{:href => shop_checkout_path} Checkout

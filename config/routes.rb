@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   post 'user/sign-out', to: 'user#sign_out'
   get 'user/profile', to: 'user#profile', as: :profile
 
+  #contact
+  get 'contact-us', to: 'contact#index', as: :contact_us
+  post 'contact-us', to: 'contact#create'
+
   #products
   get 'shop-products', to: 'product#index', as: :shop_products
   get '/:category', to: 'product#shop_by_category', as: :shop_products_category
@@ -34,10 +38,6 @@ Rails.application.routes.draw do
   post 'update-checkout-cart', to: 'product#update_checkout_cart', as: :update_checkout_cart
   post 'update-shop-payment', to: 'product#update_shop_payment', as: :update_shop_payment
   post 'update-shop-review', to: 'product#update_shop_review', as: :update_shop_review
-
-  #contact
-  get 'contact-us', to: 'contact#index', as: :contact_us
-  post 'contact-us', to: 'contact#create'
 
   #blog
   get 'blog', to: 'blog#index', as: :blog
