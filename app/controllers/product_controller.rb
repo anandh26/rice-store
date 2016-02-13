@@ -25,8 +25,6 @@ INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't
 and lower(cat.seo_name) = '#{params[:category].downcase}' order by created_at desc").
          group_by(&:sub_category_name)
 
-    p @products
-    p '====@products'
   end
 
   def shop_by_sub_category

@@ -5,7 +5,8 @@
         .header-left.clearfix
           .header-dropdown-buttons.hidden-xs
             .btn-group.dropdown
-              %img#logo{:alt => "The Project", :src => asset_path("carousel/vds_logo.png")}
+              %a{href: root_path}
+                %img#logo{:alt => "VDS Rice & Cereals Store", :src => asset_path("carousel/vds_logo.png")}
       .col-md-9
         .header-right.clearfix
           .main-navigation.animated.with-dropdown-buttons
