@@ -23,6 +23,6 @@
               = @products.first.sub_category.title
         .tab-content.clear-style
           %div.tab-pane.active{id: "pill-#{@products.first.id}"}
-            =render 'prods_tab', prods: @products
+            =render 'product/prods_tab_1', prods: @products
 
       =render 'featured_products_and_categories'

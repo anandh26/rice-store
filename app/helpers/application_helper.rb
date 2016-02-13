@@ -32,6 +32,19 @@ module ApplicationHelper
     ]
   end
 
+  def number_count
+    [
+        ['1','1'],
+        ['2','2'],
+        ['3','3'],
+        ['4','4'],
+        ['5','5'],
+        ['10','6'],
+        ['15','7'],
+        ['25','8']
+    ]
+  end
+
   def country
     [
         ['India','IN']
@@ -50,4 +63,7 @@ module ApplicationHelper
     price.to_i * quantity.to_i
   end
 
+  def carousel_items
+    Carousel.where(status: 't').all.order('rank asc')
+  end
 end

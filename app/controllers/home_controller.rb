@@ -10,6 +10,6 @@ class HomeController < ApplicationController
                   INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't'").group_by(&:category_name)
 
     @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't')
-    p @shop_cart
+
   end
 end

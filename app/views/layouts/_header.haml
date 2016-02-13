@@ -1,15 +1,11 @@
-%header.header.fixed.clearfix
+%header.header.fixed.clearfix.bg-olive.vds-background
   .container
     .row
       .col-md-3
         .header-left.clearfix
           .header-dropdown-buttons.hidden-xs
             .btn-group.dropdown
-              %a{:href => root_path}
-                %img#logo{:alt => "The Project", :src => asset_path("icons/rice.png")}
-            .btn-group.dropdown.text-bold.text-black
-              %a{:href => root_path}
-                VDS Rice & Cereals Store
+              %img#logo{:alt => "The Project", :src => asset_path("carousel/vds_logo.png")}
       .col-md-9
         .header-right.clearfix
           .main-navigation.animated.with-dropdown-buttons

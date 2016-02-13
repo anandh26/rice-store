@@ -14,7 +14,6 @@ $(function() {
   })
 
   $(".owl-carousel.carousel-autoplay").owlCarousel({
-    items: 4,
     autoPlay: 5e3,
     pagination: !1,
     navigation: !0,
@@ -100,28 +99,20 @@ $(function() {
     }
   })
 
-  $("#add-cart").length > 0 && $("#add-cart").validate({
+  $(".add-cart-prp").length > 0 && $(".add-cart-prp").validate({
     submitHandler: function(o)
     {
-      $.ajax({
-        type: "POST",
-        url: "/add-cart",
-        data: {
-          product_id: $("#product_id").val(),
-          quantity: $("#quantity").val()
-        },
-        dataType: "json",
-        success: function(o) {
-          if (o.done == 'true'){
-            //$(".submit-button").removeClass("btn-default").addClass("btn-primary")
-          }
-        }
-      })
+      AddToCart();
     },
     errorPlacement: function(e, o) {
       e.insertBefore(o)
     }
   });
+
+  function AddToCart(){
+    console.log($("#product_id").val());
+    console.log($("#quantity").val())
+  }
 
   $(".btn-remove").click(function() {
     $(this).closest(".remove-data").remove();
@@ -137,6 +128,8 @@ $(function() {
         }
       }
     })
-  })
+  });
+
+
 });
 

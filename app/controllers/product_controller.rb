@@ -21,7 +21,7 @@ class ProductController < ApplicationController
      @products = Product.find_by_sql("
                SELECT prod.id, sub_cat.*, prod.* FROM products prod
                 INNER JOIN sub_categories sub_cat ON sub_cat.id = prod.sub_category_id
-INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't' and lower(cat.seo_name) = '#{params[:category].downcase}'").
+INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't' and lower(cat.seo_name) = '#{params[:category].downcase}' order by created_at desc").
          group_by(&:sub_category_name)
   end
 
@@ -119,6 +119,11 @@ INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't
   end
 
   def shop_complete
+    shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
+    if shop_cart.present?
+      shop_cart.order_status = 'done'
+      shop_cart.save
+    end
   end
 
   private

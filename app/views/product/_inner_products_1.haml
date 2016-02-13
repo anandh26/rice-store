@@ -1,0 +1,20 @@
+%ul.nav.nav-pills{:role => "tablist"}
+  -(@products||[]).each_with_index do |(category_title, prods), index|
+    -if index == 0
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#pill-#{format_category_title(category_title)}", :role => "tab", :title => category_title}
+          %i.icon-feather
+          = category_title
+    -else
+      %li
+        %a{"data-toggle" => "tab", :href => "#pill-#{format_category_title(category_title)}", :role => "tab", :title => category_title}
+          %i.icon-feather-1
+          = category_title
+.tab-content.clear-style.bg-white
+  -(@products||[]).each_with_index do |(category_title, prods), index|
+    -if index == 0
+      %div.tab-pane.active{id: "pill-#{format_category_title(category_title)}"}
+        =render 'product/prods_tab_1', prods: prods
+    -else
+      %div.tab-pane{id: "pill-#{format_category_title(category_title)}"}
+        =render 'product/prods_tab_1', prods: prods

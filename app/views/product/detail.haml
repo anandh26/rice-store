@@ -77,7 +77,10 @@
                     .col-md-4
                       .form-group
                         %label Quantity
-                        =select_tag :quantity, options_for_select(quantity), class: 'form-control', placeholder: 'Quantity'
+                        -if @detail.is_fixed_rate
+                          =select_tag :quantity, options_for_select(number_count), class: 'form-control'
+                        -else
+                          =select_tag :quantity, options_for_select(quantity), class: 'form-control'
                     .col-md-12.text-right
                 .light-gray-bg.p-20.bordered.clearfix
                   %span.product.price
@@ -89,7 +92,13 @@
                       %i.fa.fa-rupee
                       = @detail.price_actual.to_f
                   .product.elements-list.pull-right.clearfix
-                    %input.submit-button.margin-clear.bg-olive{:type => "submit", "data-target" => ".bs-example-modal-sm",
-                    :value => "Add to Cart", "data-toggle" => "modal"}
+                    -if @detail.stock
+                      %input.submit-button.margin-clear.bg-olive{:type => "submit", "data-target" => ".bs-example-modal-sm",
+                        :value => "Add to Cart", "data-toggle" => "modal"}
+                      %i.fa.fa-shopping-cart
+                    -else
+                      %a.pull-left.btn.bg-gray.disabled{:href => "#"}
+                        Out Of Stock
+
 =render 'home/detail_specifications'
 =render 'product/add_cart_modal'

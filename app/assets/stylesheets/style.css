@@ -634,6 +634,10 @@ tbody {
 /*.background-img-10 {*/
     /*background: url(../images/background-img-10.jpg)50% 0 no-repeat*/
 /*}*/
+
+.vds-background {
+    background: url('back_ground.jpg')50% 0 no-repeat
+}
 .fullscreen-bg {
     background: url(../images/fullscreen-bg.jpg)50% 0 no-repeat;
     position: fixed;
@@ -3697,7 +3701,7 @@ fieldset[disabled] .form-control {
     font-size: 12px
 }
 .listing-item .price {
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 1px;
     display: inline-block;
     font-weight: bold;
@@ -3711,7 +3715,7 @@ fieldset[disabled] .form-control {
     color: #999
 }
 .elements-list del {
-    font-size: 18px;
+    font-size: 15px;
 }
 .listing-item .overlay-to-top {
     padding: 10px 0!important
@@ -6990,6 +6994,11 @@ h6.media-heading {
     width: 500px;
 }
 #logo{
-    width: 50px;
-    height:50px;
+    width: 150px;
+    height:60px;
+}
+
+.carousel-home-page{
+    width: 100%;
+    height: 360px;
 }
