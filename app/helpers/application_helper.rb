@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def slide_content
-    SlideContent.all
+    SlideContent.where(status: 't').all.order('rank asc')
   end
 
   def rice_all
