@@ -99,20 +99,28 @@ $(function() {
     }
   })
 
-  $(".add-cart-prp").length > 0 && $(".add-cart-prp").validate({
+  $("#add-cart").length > 0 && $("#add-cart").validate({
     submitHandler: function(o)
     {
-      AddToCart();
+      $.ajax({
+        type: "POST",
+        url: "/add-cart",
+        data: {
+          product_id: $("#product_id").val(),
+          quantity: $("#quantity").val()
+        },
+        dataType: "json",
+        success: function(o) {
+          if (o.done == 'true'){
+            //$(".submit-button").removeClass("btn-default").addClass("btn-primary")
+          }
+        }
+      })
     },
     errorPlacement: function(e, o) {
       e.insertBefore(o)
     }
   });
-
-  function AddToCart(){
-    console.log($("#product_id").val());
-    console.log($("#quantity").val())
-  }
 
   $(".btn-remove").click(function() {
     $(this).closest(".remove-data").remove();

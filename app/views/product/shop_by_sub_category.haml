@@ -16,13 +16,18 @@
       .main.col-md-8.col-lg-offset-1.col-md-push-4.col-lg-push-3
         %h1.page-title Our Products
         .separator-2
-        %ul.nav.nav-pills{:role => "tablist"}
-          %li
-            %a{"data-toggle" => "tab", :href => "#pill-#{@products.first.id}", :role => "tab", :title => @products.first.title}
-              %i.icon-star
-              = @products.first.sub_category.title
-        .tab-content.clear-style
-          %div.tab-pane.active{id: "pill-#{@products.first.id}"}
-            =render 'product/prods_tab_1', prods: @products
+        -if @products.present? && @products.length > 0
+          %ul.nav.nav-pills{:role => "tablist"}
+            %li
+              %a{"data-toggle" => "tab", :href => "#pill-#{@products.first.id}", :role => "tab", :title => @products.first.title}
+                %i.icon-star
+                = @products.first.sub_category.title
+          .tab-content.clear-style
+            %div.tab-pane.active{id: "pill-#{@products.first.id}"}
+              =render 'product/prods_tab_1', prods: @products
+        -else
+          .overlay-container
+            %img.resize-coming-soon{:alt => "Coming soon", :src => asset_path("coming-soon.jpg")}
+
 
       =render 'featured_products_and_categories'

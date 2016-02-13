@@ -1,5 +1,5 @@
 .row.masonry-grid-fitrows.grid-space-10
-  -prods.each do |rice|
+  -(prods||[]).each do |rice|
     %add-cart-prp.margin-clear{:novalidate => "novalidate", :role => "form", id: rice.id}
       .col-md-3.col-sm-6.masonry-grid-item.light-gray-bg.boxed.shadow{:style => "position: absolute; left: 0px; top: 0px;"}
         .listing-item.white-bg.bordered.mb-20
@@ -33,10 +33,13 @@
               %span
                 -if rice.stock
                   =hidden_field_tag :product_id, rice.id
-                  %input.pull-left.submit-button.btn.bg-olive{:type => "submit", "data-target" => ".bs-example-modal-sm",
-                        :value => "Add to Cart", "data-toggle" => "modal"}
+                  -#%input.pull-left.submit-button.btn.bg-olive{:type => "submit", "data-target" => ".bs-example-modal-sm",
+                  -#      :value => "Add to Cart", "data-toggle" => "modal"}
+                  %a.btn.btn-group.bg-olive.btn-sm{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
+                    Add to Cart
+                    %i.icon-basket
                 -else
-                  %a.pull-left.btn.bg-gray.disabled{:href => "#"}
+                  %a.pull-left.btn.bg-gray.disabled.btn-sm{:href => "#"}
                     Out Of Stock
 
 =render 'product/add_cart_modal'

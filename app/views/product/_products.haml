@@ -2,8 +2,8 @@
   .container
     .row
       .col-md-8
-        -if @products.length == 0
-          .overlay-container
-            %img.resize-coming-soon{:alt => "", :src => asset_path("coming-soon.jpg")}
-        -else
+        -if @products && @products.length == 0
           =render 'product/inner_products_1'
+        -else
+          .overlay-container
+            %img.resize-coming-soon{:alt => "Coming soon", :src => asset_path("coming-soon.jpg")}
