@@ -74,17 +74,49 @@
               .btn-group.dropdown
                 %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
                   %i.fa.fa-lock.pr-10
-                  =session[:user]['user_name']
-                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
-                  %li.user-header
-                    %img.img-circle{:alt => "User Image", :src => asset_path("user2-160x160.jpg")}
-                      %p
-                        ="#{session[:user]['first_name']}, #{session[:user]['last_name']}"
-                  %li.user-footer
-                    .pull-left
-                      %a.btn.bg-olive.btn-flat{:href => profile_path} Profile
-                    .pull-right
-                      %a.btn.bg-olive.btn-flat{:href => logout_path} Sign out
+                  My Account
+                %ul.dropdown-menu.dropdown-menu-right.bg-white
+                  %li
+                    %a{:href => profile_path}
+                      %i.fa.fa-user.pr-10
+                      My Account
+                      %span.badge New
+                  %li
+                    %a{:href => orders_path}
+                      %i.fa.fa-user-plus.pr-10
+                      My Orders
+                      %span.badge Coming Soon
+
+                  %li
+                    %a{:href => my_points_path}
+                      %i.fa.fa-user.pr-10
+                      My Points
+                      %span.badge Coming Soon
+
+                  %li
+                    %a{:href => my_coupons_path}
+                      %i.fa.fa-user.pr-10
+                      My Coupons
+                      %span.badge Coming Soon
+
+                  %li
+                    %a{:href => logout_path}
+                      %i.fa.fa-sign-out.pr-10
+                      Sign-Out
+              -#.btn-group.dropdown
+              -#  %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
+              -#    %i.fa.fa-lock.pr-10
+              -#    =session[:user]['user_name']
+              -#  %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+              -#    %li.user-header
+              -#      %img.img-circle{:alt => "User Image", :src => asset_path("user2-160x160.jpg")}
+              -#        %p
+              -#          ="#{session[:user]['first_name']}, #{session[:user]['last_name']}"
+              -#    %li.user-footer
+              -#      .pull-left
+              -#        %a.btn.bg-olive.btn-flat{:href => profile_path} Profile
+              -#      .pull-right
+              -#        %a.btn.bg-olive.btn-flat{:href => logout_path} Sign out
             -else
               .btn-group
                 %a.btn.btn-default.btn-sm{:href => user_register_path}

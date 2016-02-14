@@ -1,49 +1,72 @@
 .pv-40.light-translucent-bg
   .container
-    .row
-      .col-md-8.text-center.col-md-offset-2.pv-20
-        .object-non-visible.animated.object-visible.fadeIn{"data-animation-effect" => "fadeIn", "data-effect-delay" => "100"}
-          / logo
-          #logo.logo.text-center
-            %h3.margin-clear
-              %a.logo-font.link-light{:href => "index.html"}
-                The
-                %span.text-default Online Rice Store
-          / name-and-slogan
-          %p.small Your online rice store
-          %h1.page-title.text-center Coming Soon
-          .separator
-          %p.text-center Under construction
-          %ul.list-inline.mb-20.text-center
-            %li
-              %i.text-default.fa.fa-map-marker.pr-5>
-              Online Rice Store, 77000
-            %li
-              %a.link-dark{:href => "tel:+00 1234567890"}
-                %i.text-default.fa.fa-phone.pl-10.pr-5>
-                +00 1234567890
-            %li
-              %a.link-dark{:href => "mailto:info@theproject.com"}
-                %i.text-default.fa.fa-envelope-o.pl-10.pr-5>
-                contact@ricestore.com
-          %ul.social-links.circle.animated-effect-1.text-center
-            %li.facebook
-              %a{:href => "http://www.facebook.com", :target => "_blank"}
-                %i.fa.fa-facebook
-            %li.twitter
-              %a{:href => "http://www.twitter.com", :target => "_blank"}
-                %i.fa.fa-twitter
-            %li.googleplus
-              %a{:href => "http://plus.google.com", :target => "_blank"}
-                %i.fa.fa-google-plus
-            %li.linkedin
-              %a{:href => "http://www.linkedin.com", :target => "_blank"}
-                %i.fa.fa-linkedin
-            %li.xing
-              %a{:href => "http://www.xing.com", :target => "_blank"}
-                %i.fa.fa-xing
-    %p.text-center.object-non-visible.animated.object-visible.fadeIn{"data-animation-effect" => "fadeIn", "data-effect-delay" => "100"}
-      Copyright © 2015 The Project by
-      = succeed "." do
-        %a{:href => "http://htmlcoder.me", :target => "_blank"} Online Rice Store
-      All Rights Reserved
+    %section.content-header
+    %h1
+      Information Personalles
+    %ol.breadcrumb
+      %li
+        %a{:href => "#"}
+          %i.fa.fa-dashboard
+          My Account
+      %li
+        %a{:href => "#"} Profile
+      %li.active Info Perso
+  .content
+    = form_tag :update_profile, id: 'update-profile', class: 'form-horizontal', remote: true do
+      .row
+        .col-md-12
+          .box.box-primary
+            .alert.alert-success.alert-dismissible#user-success-message{"aria-hidden" => "true", :role => "alert", :style => "display: none;"}
+              %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+                %span{"aria-hidden" => "true"}
+              %strong Success!
+              Hurray !! Your Information has been saved.
+            .box-header.with-border
+              %h3.box-title Update/Edit your Information
+            .col-md-6
+              .box-body
+                .form-group
+                  %label.control-label{:for => "nom"} Nom
+                  =text_field_tag :first_name, @user.first_name, class: 'form-control', placeholder: 'Enter nom'
+                  .form-group
+                    %label.control-label{:for => "nom"} Prenom
+                    =text_field_tag :last_name, @user.last_name, class: 'form-control', placeholder: 'Enter prenom'
+                  .form-group
+                    %label.control-label{:for => "nom"} Email
+                    .input-group
+                      %span.input-group-addon
+                        %i.fa.fa-envelope
+                      =text_field_tag :email, @user.email, class: 'form-control', placeholder: 'Enter email'
+                  .form-group
+                    %label.control-label{:for => "nom"} Mot de passe
+                    =password_field_tag :password, @user.password, class: 'form-control', placeholder: 'Enter password'
+                  .form-group
+                    %label.control-label{:for => "nom"} Phone
+                    =text_field_tag :phone, @user.phone, class: 'form-control', placeholder: 'Enter Phone'
+            .col-md-6
+              .box-body
+                .form-group
+                  %label.control-label{:for => "nom"} Address1
+                  =text_field_tag :address_1, @user.address_1, class: 'form-control', placeholder: 'Enter Address 1'
+                .form-group
+                  %label.control-label{:for => "nom"} Address2
+                  =text_field_tag :address_2, @user.address_2, class: 'form-control', placeholder: 'Enter Address2'
+                .form-group
+                  %label.control-label{:for => "nom"} City
+                  =text_field_tag :city, @user.city, class: 'form-control', placeholder: 'Enter City'
+                .form-group.hide
+                  %label.control-label{:for => "nom"} Region
+                  =text_field_tag :region, @user.region, class: 'form-control', placeholder: 'Enter Region'
+                .form-group
+                  %label.control-label{:for => "nom"} Postal Code
+                  =text_field_tag :postal_code, @user.postal_code, class: 'form-control', placeholder: 'Enter Postal Code'
+                .form-group
+                  %label.control-label{:for => "nom"} Country
+                  =text_field_tag :country, @user.country, class: 'form-control', placeholder: 'Enter Country'
+      .row
+        .col-md-12
+          .text-center
+            %button.btn.bg-maroon.btn-flat.btn-alert{:type => "submit"}
+              Save
+              %i.fa.fa-check
+

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery-ui
 //= require plugins/bootstrap.min
 //= require plugins/chosen.jquery

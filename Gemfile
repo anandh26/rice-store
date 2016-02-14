@@ -6,6 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -62,4 +63,4 @@ gem "administrate"
 
 gem 'advanced_bot_detection'
 
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'

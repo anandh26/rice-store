@@ -114,7 +114,7 @@ sub_categories.seo_name = '#{ params[:sub_category]}'").order("CREATED_AT DESC")
   def update_shop_review
     shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't', order_status: 'pending')
     if shop_cart.present?
-      shop_cart.order_status = 'done'
+      shop_cart.order_status = 'delivered'
       shop_cart.save
     end
 

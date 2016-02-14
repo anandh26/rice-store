@@ -1,0 +1,38 @@
+.pv-40.light-translucent-bg
+  .container
+    %section.content-header
+    %h1
+      My Points
+    %ol.breadcrumb
+      %li.active
+        %a{:href => "#"}
+          %i.fa.fa-dashboard
+          My Points
+  .content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h3.box-title View My Points Cumulated
+        .col-md-12
+          .box-body
+            %table.table.table-colored.table-bordered
+              %thead
+                %tr
+                  %th DATE
+                  %th POINTS CUMULATED
+                  %th POINTS CONSUMED
+                  %th STATUS
+              %tbody
+                -@points.each do |point|
+                  %tr
+                    %td= point.created_at
+                    %td= point.point
+                    %td= point.point_used
+                    %td= point.status
+    .row
+      .col-md-12
+        .text-center
+          %a.btn.btn-group.bg-olive{:href => shop_products_path}
+            %i.icon-anchor
+            Start Your Shopping

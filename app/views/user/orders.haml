@@ -1,0 +1,44 @@
+.pv-40.light-translucent-bg
+  .container
+    %section.content-header
+    %h1
+      My Orders
+    %ol.breadcrumb
+      %li.active
+        %a{:href => "#"}
+          %i.fa.fa-dashboard
+          My Orders
+  .content
+    .row
+      .col-md-12
+        .box.box-primary
+          .box-header.with-border
+            %h3.box-title View My Orders
+        .col-md-12
+          .box-body
+            %table.table.table-colored.table-bordered
+              %thead
+                %tr
+                  %th DATE
+                  %th ORDER NO
+                  %th AMOUNT
+                  %th PAYMENT TYPE
+                  %th STATUS
+                  %th POINTS
+              %tbody
+                -@orders.each do |order|
+                  %tr
+                    %td= order.created_at
+                    %td= order.id
+                    %td= order.total
+                    %td= order.payment_type.upcase
+                    %td= order.order_status.upcase
+                    %td= order.points
+
+
+    .row
+      .col-md-12
+        .text-center
+          %a.btn.btn-group.bg-olive{:href => shop_products_path}
+            %i.icon-anchor
+            Start Your Shopping

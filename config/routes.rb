@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get 'user/sign-out', to: 'user#sign_out', as: :logout
   post 'user/sign-out', to: 'user#sign_out'
   get 'user/profile', to: 'user#profile', as: :profile
+  post 'user/update-profile', to: 'user#update_profile', as: :update_profile
+  get 'user/points', to: 'user#my_points', as: :my_points
+  get 'user/orders', to: 'user#orders', as: :orders
+  get 'user/coupons', to: 'user#my_coupons', as: :my_coupons
 
   #contact
   get 'contact-us', to: 'contact#index', as: :contact_us

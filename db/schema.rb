@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211202003) do
+ActiveRecord::Schema.define(version: 20160214151119) do
 
   create_table "carousels", force: :cascade do |t|
     t.text     "title"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20160211202003) do
 
   add_index "products", ["sub_category_id"], name: "index_products_on_sub_category_id"
 
+  create_table "redeem_points", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "point"
+    t.integer  "point_used"
+    t.boolean  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shopping_cart_products", force: :cascade do |t|
     t.string   "product_title"
     t.text     "product_description"
@@ -121,6 +130,8 @@ ActiveRecord::Schema.define(version: 20160211202003) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "order_status"
+    t.string   "shipment_type"
+    t.integer  "points"
   end
 
   create_table "slide_contents", force: :cascade do |t|

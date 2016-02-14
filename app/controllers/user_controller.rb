@@ -38,6 +38,37 @@ class UserController < ApplicationController
   end
 
   def profile
+    @user = User.find_by(email: session[:user]['email'])
+  end
+
+  def update_profile
+    @user = User.find_by(email: session[:user]['email'])
+    if @user.present?
+      @user.first_name  = params[:first_name]
+      @user.last_name  = params[:last_name]
+      @user.password  = params[:password]
+      @user.phone  = params[:phone]
+      @user.address_1  = params[:address_1]
+      @user.address_2  = params[:address_2]
+      @user.city  = params[:city]
+      @user.country  = params[:country]
+      @user.postal_code  = params[:postal_code]
+      @user.save
+    end
+    respond_to do |format|
+      format.js {render layout: false}
+    end
+  end
+
+  def orders
+    @orders = ShoppingCart.all.where(email: session[:user]['email'])
+  end
+
+  def my_points
+    @points = RedeemPoint.all.where(email: session[:user]['email'])
+  end
+
+  def my_coupons
 
   end
 end
