@@ -61,3 +61,5 @@ gem 'country_select'
 gem "administrate"
 
 gem 'advanced_bot_detection'
+
+gem 'newrelic_rpm'
