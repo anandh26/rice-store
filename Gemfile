@@ -63,4 +63,4 @@ gem "administrate"
 
 gem 'advanced_bot_detection'
 
-#gem 'newrelic_rpm'
+gem 'newrelic_rpm'
