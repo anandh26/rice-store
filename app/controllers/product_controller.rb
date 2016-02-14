@@ -21,12 +21,9 @@ class ProductController < ApplicationController
      @products = Product.find_by_sql("
                SELECT prod.id, sub_cat.*, prod.* FROM products prod
                 INNER JOIN sub_categories sub_cat ON sub_cat.id = prod.sub_category_id
-INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't'
-and lower(cat.seo_name) = '#{params[:category].downcase}' order by created_at desc").
+                INNER JOIN categories cat ON cat.id = sub_cat.category_id where prod.status = 't'
+                and lower(cat.seo_name) = '#{params[:category].downcase}' order by prod.created_at desc").
          group_by(&:sub_category_name)
-
-    p @products
-    p '------'
 
   end
 
