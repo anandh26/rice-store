@@ -7,7 +7,7 @@
             %img{:alt => rice.title, :src => asset_path("products/""#{rice.image}")}
               %a.overlay-link.popup-img-single{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
                 %i.fa.fa-search-plus
-              %span.badge 30% OFF
+              -#%span.badge 30% OFF
               .overlay-to-top.links
                 %span.small
                   %a.btn-sm-link{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
@@ -18,13 +18,18 @@
               %a{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
                 =rice.title
             .elements-list.clearfix
-              %span
-                %del
-                  %i.fa.fa-rupee
-                  =rice.price.to_f
+              -if rice.price.to_f == rice.price_actual.to_f
                 %span.price
                   %i.fa.fa-rupee
                   = rice.price_actual.to_f
+              -else
+                %span
+                  %del
+                    %i.fa.fa-rupee
+                    =rice.price.to_f
+                  %span.price
+                    %i.fa.fa-rupee
+                    = rice.price_actual.to_f
               -if rice.is_fixed_rate
                 =select_tag :quantity, options_for_select(number_count), class: 'form-control'
               -else

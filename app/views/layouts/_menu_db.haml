@@ -18,7 +18,7 @@
                     %h4.title="#{m.name} Brands"
                     .divider
                     %ul.menu
-                      -m.sub_categories.each do |menu|
+                      -m.sub_categories.order(:rank).each do |menu|
                         %li
                           %a{:href => shop_products_sub_category_path(category: menu.category_name, sub_category: menu.seo_name)}
                             =menu.icon.html_safe

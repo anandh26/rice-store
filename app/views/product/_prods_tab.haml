@@ -1,37 +1,42 @@
 -prods.each do |rice|
-  .listing-item.mb-20
-    .row.grid-space-0
-      .col-sm-6.col-md-4.col-lg-3
-        .overlay-container
-          %img{:alt => "", :src => asset_path("products/""#{rice.image}")}
-            %a.overlay-link{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
-              %i.fa.fa-plus
-            %span.badge 30% OFF
-      .col-sm-6.col-md-8.col-lg-9
-        .body
-          %h3.margin-clear
-            =link_to rice.title, shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)
-          %p
-            %i.fa.fa-star.text-default
-            %i.fa.fa-star.text-default
-            %i.fa.fa-star.text-default
-            %i.fa.fa-star.text-default
-            %i.fa.fa-star
-            %a.btn-sm-link{:href => "#"}
-              %i.icon-heart.pr-5>
-              Add to Wishlist
-            %a.btn-sm-link{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
-              %i.icon-link.pr-5>
-              View Details
-          %p= rice.description
-          .light-gray-bg.p-20.bordered.clearfix
-            %span.product.price
-              %i.icon-tag.pr-10>
-              %del.price-del
-                %i.fa.fa-rupee.pr-10
-                =rice.price.to_f
-              %span.price
-                %i.fa.fa-rupee
-                = rice.price_actual.to_f
-            .product.elements-list.pull-right.clearfix
-              %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
+  -if rice.stock
+    .listing-item.mb-20
+      .row.grid-space-0
+        .col-sm-6.col-md-4.col-lg-3
+          .overlay-container
+            %img{:alt => "", :src => asset_path("products/""#{rice.image}")}
+              %a.overlay-link{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
+                %i.fa.fa-plus
+              -#%span.badge 30% OFF
+        .col-sm-6.col-md-8.col-lg-9
+          .body
+            %h3.margin-clear
+              =link_to rice.title, shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)
+            %p
+              %i.fa.fa-star.text-default
+              %i.fa.fa-star.text-default
+              %i.fa.fa-star.text-default
+              %i.fa.fa-star.text-default
+              %i.fa.fa-star
+              %a.btn-sm-link{:href => "#"}
+                %i.icon-heart.pr-5>
+                Add to Wishlist
+              %a.btn-sm-link{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
+                %i.icon-link.pr-5>
+                View Details
+            %p= rice.description
+            .light-gray-bg.p-20.bordered.clearfix
+              -if rice.price.to_f == rice.price_actual.to_f
+                %span.price
+                  %i.fa.fa-rupee
+                  = rice.price_actual.to_f
+              -else
+                %span
+                  %del
+                    %i.fa.fa-rupee
+                    =rice.price.to_f
+                  %span.price
+                    %i.fa.fa-rupee
+                    = rice.price_actual.to_f
+              .product.elements-list.pull-right.clearfix
+                %input.margin-clear.btn.btn-primary{:type => "submit", :value => "Add to Cart"}
