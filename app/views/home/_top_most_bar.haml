@@ -70,7 +70,33 @@
       .col-xs-9.col-sm-6.col-md-3
         #header-top-second.clearfix
           .header-top-dropdown.text-right
-            -if session[:user].present?
+            -if session[:user].nil?
+              .btn-group
+                %a.btn.btn-default.btn-sm{:href => user_register_path}
+                  %i.fa.fa-user.pr-10
+                  Sign Up
+              .btn-group.dropdown
+                %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-lock.pr-10
+                  Login
+                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                  %li
+                    = form_tag :user_login, id: 'registration-form', class: 'form-horizontal' do
+                      .form-group.has-feedback
+                        %label.control-label Username
+                        =text_field_tag :email, params[:email], class: 'required', :placeholder => 'Email', class: 'form-control'
+                        %i.fa.fa-user.form-control-feedback
+                      .form-group.has-feedback
+                        %label.control-label Password
+                        =password_field_tag :password, params[:password], class: 'required', :placeholder => 'Password', class: 'form-control'
+                        %i.fa.fa-lock.form-control-feedback
+                      %button.btn.bg-olive.btn-flat{:type => "submit"} Log In
+                      %span.pl-5.pr-5 or
+                      =link_to 'Sign Up', registration_path, class: 'btn bg-olive btn-flat'
+                      %ul
+                        %li
+                          %a{:href => "#"} Forgot your password?
+            -else
               .btn-group.dropdown
                 %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
                   %i.fa.fa-lock.pr-10
@@ -103,43 +129,4 @@
                     %a{:href => logout_path}
                       %i.fa.fa-sign-out.pr-10
                       Sign-Out
-              -#.btn-group.dropdown
-              -#  %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
-              -#    %i.fa.fa-lock.pr-10
-              -#    =session[:user]['user_name']
-              -#  %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
-              -#    %li.user-header
-              -#      %img.img-circle{:alt => "User Image", :src => asset_path("user2-160x160.jpg")}
-              -#        %p
-              -#          ="#{session[:user]['first_name']}, #{session[:user]['last_name']}"
-              -#    %li.user-footer
-              -#      .pull-left
-              -#        %a.btn.bg-olive.btn-flat{:href => profile_path} Profile
-              -#      .pull-right
-              -#        %a.btn.bg-olive.btn-flat{:href => logout_path} Sign out
-            -else
-              .btn-group
-                %a.btn.btn-default.btn-sm{:href => user_register_path}
-                  %i.fa.fa-user.pr-10
-                  Sign Up
-              .btn-group.dropdown
-                %button.btn.dropdown-toggle.btn-default.btn-sm{"data-toggle" => "dropdown", :type => "button"}
-                  %i.fa.fa-lock.pr-10
-                  Login
-                %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
-                  %li
-                    = form_tag :user_login, id: 'registration-form', class: 'form-horizontal' do
-                      .form-group.has-feedback
-                        %label.control-label Username
-                        =text_field_tag :email, params[:email], class: 'required', :placeholder => 'Email', class: 'form-control'
-                        %i.fa.fa-user.form-control-feedback
-                      .form-group.has-feedback
-                        %label.control-label Password
-                        =password_field_tag :password, params[:password], class: 'required', :placeholder => 'Password', class: 'form-control'
-                        %i.fa.fa-lock.form-control-feedback
-                      %button.btn.bg-olive.btn-flat{:type => "submit"} Log In
-                      %span.pl-5.pr-5 or
-                      =link_to 'Sign Up', registration_path, class: 'btn bg-olive btn-flat'
-                      %ul
-                        %li
-                          %a{:href => "#"} Forgot your password?
+
