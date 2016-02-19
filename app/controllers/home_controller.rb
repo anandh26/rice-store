@@ -11,5 +11,6 @@ class HomeController < ApplicationController
 
     @shop_cart = ShoppingCart.find_by(unique_id:request.session_options[:id], status: 't')
 
+    @featured_cat = Category.all.where(status: 'f')
   end
 end

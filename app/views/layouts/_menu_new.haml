@@ -1,36 +1,193 @@
-%ul.nav.navbar-nav
-  %li.dropdown.mega-menu{:style => ""}
-    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-      %i.icon-flask.pr-10>
-      Rice
-    %ul.dropdown-menu
-      %li
-        .row
-          .col-md-12
-            %h4.title
-              %i.fa.fa-magic.pr-10
-              Components
-            .row
-              .col-sm-4
-                .divider
-                %ul.menu
-                  %li
-                    %a{:href => "components-social-icons.html"}
-                      %i.icon-share.pr-10>
-                      Social Icons
-              .col-sm-4
-                .divider
-                %ul.menu
-                  %li.active
-                    %a{:href => "components-icon-boxes.html"}
-                      %i.icon-picture-outline.pr-10>
-                      Icon Boxes
-                  %li
-                    %a{:href => "components-image-boxes.html"}
-                      %i.icon-camera-1.pr-10>
-                      Image Boxes
-
-              .col-sm-3
-                %h4.title=  "All our  Brands"
-                %p.mb-10= "The list ofbrands available in our shop"
-                %img{:alt => "Brands", :src => asset_path('rice_main_menu.jpg')}
+%li.dropdown.mega-menu-fullwidth
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:void(0);"}
+    Shortcodes
+  %ul.dropdown-menu
+    %li
+      .mega-menu-content.disable-icons
+        .container
+          .row.equal-height
+            .col-md-3.equal-height-in
+              %ul.list-unstyled.equal-height-list
+                %li
+                  %h3 Typography &amp; Components
+                / Typography
+                %li
+                  %a{:href => "shortcode_typo_general.html"}
+                    %i.fa.fa-sort-alpha-asc
+                    General Typography
+                %li
+                  %a{:href => "shortcode_typo_headings.html"}
+                    %i.fa.fa-magic
+                    Headings Options
+                %li
+                  %a{:href => "shortcode_typo_dividers.html"}
+                    %i.fa.fa-ellipsis-h
+                    Dividers
+                %li
+                  %a{:href => "shortcode_typo_blockquote.html"}
+                    %i.fa.fa-quote-left
+                    Blockquote Blocks
+                %li
+                  %a{:href => "shortcode_typo_boxshadows.html"}
+                    %i.fa.fa-asterisk
+                    Box Shadows
+                %li
+                  %a{:href => "shortcode_typo_testimonials.html"}
+                    %i.fa.fa-comments
+                    Testimonials
+                %li
+                  %a{:href => "shortcode_typo_tagline_boxes.html"}
+                    %i.fa.fa-tasks
+                    Tagline Boxes
+                %li
+                  %a{:href => "shortcode_typo_grid.html"}
+                    %i.fa.fa-align-justify
+                    Grid Layouts
+                / End Typography
+                / Components
+                %li
+                  %a{:href => "shortcode_compo_messages.html"}
+                    %i.fa.fa-comment
+                    Alerts &amp; Messages
+                %li
+                  %a{:href => "shortcode_compo_labels.html"}
+                    %i.fa.fa-tags
+                    Labels &amp; Badges
+                %li
+                  %a{:href => "shortcode_compo_media.html"}
+                    %i.fa.fa-volume-down
+                    Audio/Videos &amp; Images
+                %li
+                  %a{:href => "shortcode_compo_pagination.html"}
+                    %i.fa.fa-arrows-h
+                    Paginations
+            / End Components
+            .col-md-3.equal-height-in
+              %ul.list-unstyled.equal-height-list
+                %li
+                  %h3 Buttons &amp; Icons
+                / Buttons
+                %li
+                  %a{:href => "shortcode_btn_general.html"}
+                    %i.fa.fa-flask
+                    General Buttons
+                %li
+                  %a{:href => "shortcode_btn_brands.html"}
+                    %i.fa.fa-html5
+                    Brand &amp; Social Buttons
+                %li
+                  %a{:href => "shortcode_btn_effects.html"}
+                    %i.fa.fa-bolt
+                    Loading &amp; Hover Effects
+                / End Buttons
+                / Icons
+                %li
+                  %a{:href => "shortcode_icon_general.html"}
+                    %i.fa.fa-chevron-circle-right
+                    General Icons
+                %li
+                  %a{:href => "shortcode_icon_fa.html"}
+                    %i.fa.fa-chevron-circle-right
+                    Font Awesome Icons
+                %li
+                  %a{:href => "shortcode_icon_line.html"}
+                    %i.fa.fa-chevron-circle-right
+                    Line Icons
+                %li
+                  %a{:href => "shortcode_icon_line_christmas.html"}
+                    %i.fa.fa-chevron-circle-right
+                    Line Icons Pro
+                %li
+                  %a{:href => "shortcode_icon_glyph.html"}
+                    %i.fa.fa-chevron-circle-right
+                    Glyphicons Icons (Bootstrap)
+            / End Icons
+            .col-md-3.equal-height-in
+              %ul.list-unstyled.equal-height-list
+                %li
+                  %h3 Common elements
+                / Common Elements
+                %li
+                  %a{:href => "shortcode_thumbnails.html"}
+                    %i.fa.fa-image
+                    Thumbnails
+                %li
+                  %a{:href => "shortcode_accordion_and_tabs.html"}
+                    %i.fa.fa-list-ol
+                    Accordion &amp; Tabs
+                %li
+                  %a{:href => "shortcode_timeline1.html"}
+                    %i.fa.fa-dot-circle-o
+                    Timeline Option 1
+                %li
+                  %a{:href => "shortcode_timeline2.html"}
+                    %i.fa.fa-dot-circle-o
+                    Timeline Option 2
+                %li
+                  %a{:href => "shortcode_table_general.html"}
+                    %i.fa.fa-table
+                    Tables
+                %li
+                  %a{:href => "shortcode_compo_progress_bars.html"}
+                    %i.fa.fa-align-left
+                    Progress Bars
+                %li
+                  %a{:href => "shortcode_compo_panels.html"}
+                    %i.fa.fa-columns
+                    Panels
+                %li
+                  %a{:href => "shortcode_carousels.html"}
+                    %i.fa.fa-sliders
+                    Carousel Examples
+                %li
+                  %a{:href => "shortcode_maps_google.html"}
+                    %i.fa.fa-map-marker
+                    Google Maps
+                %li
+                  %a{:href => "shortcode_maps_vector.html"}
+                    %i.fa.fa-align-center
+                    Vector Maps
+            / End Common Elements
+            .col-md-3.equal-height-in
+              %ul.list-unstyled.equal-height-list
+                %li
+                  %h3 Forms &amp; Infographics
+                / Forms
+                %li
+                  %a{:href => "shortcode_form_general.html"}
+                    %i.fa.fa-bars
+                    Common Bootstrap Forms
+                %li
+                  %a{:href => "shortcode_form_general1.html"}
+                    %i.fa.fa-bars
+                    General Unify Forms
+                %li
+                  %a{:href => "shortcode_form_advanced.html"}
+                    %i.fa.fa-bars
+                    Advanced Forms
+                %li
+                  %a{:href => "shortcode_form_layouts.html"}
+                    %i.fa.fa-bars
+                    Form Layouts
+                %li
+                  %a{:href => "shortcode_form_layouts_advanced.html"}
+                    %i.fa.fa-bars
+                    Advanced Layout Forms
+                %li
+                  %a{:href => "shortcode_form_states.html"}
+                    %i.fa.fa-bars
+                    Form States
+                %li
+                  %a{:href => "shortcode_form_sliders.html"}
+                    %i.fa.fa-bars
+                    Form Sliders
+                %li
+                  %a{:href => "shortcode_form_modals.html"}
+                    %i.fa.fa-bars
+                    Modals
+                / End Forms
+                / Infographics
+                %li
+                  %a{:href => "shortcode_compo_charts.html"}
+                    %i.fa.fa-pie-chart
+                    Charts &amp; Countdowns

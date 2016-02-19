@@ -11,23 +11,22 @@
         %a{:href => shop_products_category_path(category: params[:category])}
           =params[:sub_category]
 %section.main-container
-  .container
-    .row
-      .main.col-md-8.col-lg-offset-1.col-md-push-4.col-lg-push-3
-        %h1.page-title Our Products
-        .separator-2
-        -if @products.present? && @products.length > 0
-          %ul.nav.nav-pills{:role => "tablist"}
-            %li
-              %a{"data-toggle" => "tab", :href => "#pill-#{@products.first.id}", :role => "tab", :title => @products.first.title}
-                %i.icon-star
-                = @products.first.sub_category.title
-          .tab-content.clear-style
-            %div.tab-pane.active{id: "pill-#{@products.first.id}"}
-              =render 'product/prods_tab_1', prods: @products
-        -else
-          .overlay-container
-            %img.resize-coming-soon{:alt => "Coming soon", :src => asset_path("coming-soon.jpg")}
+  .row
+    .main.col-md-12.col-md-offset-1
+      %h1.page-title= "All Our #{format_text(params[:sub_category])} Varieties"
+      .separator-2
+      -if @products.present? && @products.length > 0
+        %ul.nav.nav-pills{:role => "tablist"}
+          %li
+            %a{"data-toggle" => "tab", :href => "#pill-#{@products.first.id}", :role => "tab", :title => @products.first.title}
+              %i.icon-star
+              = @products.first.sub_category.title
+        .tab-content.clear-style
+          %div.tab-pane.active{id: "pill-#{@products.first.id}"}
+            =render 'product/prods_tab_1', prods: @products
+      -else
+        .overlay-container
+          %img.resize-coming-soon{:alt => "Coming soon", :src => asset_path("coming-soon.jpg")}
 
 
-      =render 'featured_products_and_categories'
+      =#render 'featured_products_and_categories'

@@ -66,4 +66,8 @@ module ApplicationHelper
   def carousel_items
     Carousel.where(status: 't').all.order('rank asc')
   end
+
+  def format_text(text)
+    text.gsub('-', ' ').upcase
+  end
 end

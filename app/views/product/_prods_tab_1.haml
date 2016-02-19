@@ -1,7 +1,7 @@
 .row.masonry-grid-fitrows.grid-space-10
   -(prods||[]).each do |rice|
     %add-cart-prp.margin-clear{:novalidate => "novalidate", :role => "form", id: rice.id}
-      .col-md-3.col-sm-6.masonry-grid-item.light-gray-bg.boxed.shadow{:style => "position: absolute; left: 0px; top: 0px;"}
+      .col-md-2.col-sm-6.masonry-grid-item{:style => "position: absolute; left: 0px; top: 0px;"}
         .listing-item.white-bg.bordered.mb-20
           .overlay-container
             %img{:alt => rice.title, :src => asset_path("products/""#{rice.image}")}
@@ -14,7 +14,7 @@
                     %i.icon-link.pr-5>
                     View Details
           .body
-            %h4
+            %small.bold
               %a{:href => shop_products_detail_path(category: rice.sub_category.category_name.downcase, sub_category: rice.sub_category.seo_name, seo_name: rice.seo_name)}
                 =rice.title
             .elements-list.clearfix
@@ -23,7 +23,7 @@
                   %i.fa.fa-rupee
                   = rice.price_actual.to_f
               -else
-                %span
+                %span.small
                   %del
                     %i.fa.fa-rupee
                     =rice.price.to_f

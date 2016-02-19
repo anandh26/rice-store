@@ -1,42 +1,40 @@
-%header.header.fixed.clearfix.bg-olive.vds-background
-  .container
-    .row
-      .col-md-3
-        .header-left.clearfix
-          .header-dropdown-buttons.hidden-xs
-            .btn-group.dropdown
-              %a{href: root_path}
-                %img#logo{:alt => "VDS Rice & Cereals Store", :src => asset_path("carousel/vds_logo.png")}
-      .col-md-9
-        .header-right.clearfix
-          .main-navigation.animated.with-dropdown-buttons
-            %nav.navbar.navbar-default{:role => "navigation"}
-              .container-fluid
-                .navbar-header
-                  %button.navbar-toggle{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-                    %span.sr-only Toggle navigation
-                    %span.icon-bar
-                    %span.icon-bar
-                    %span.icon-bar
-                #navbar-collapse-1.collapse.navbar-collapse
-                  =render 'layouts/menu_db'
+%header.header.centered.fixed.clearfix
+  .row
+    .col-md-12
+      .header-left.clearfix
+        #logo.logo
+          %a{:href => root_path}
+            %img.hidden-xs{:alt => "VDS Rice & Cereals Store", :src => asset_path("carousel/vds_logo")}/
+    .col-md-12
+      .header-right.clearfix
+        .main-navigation.animated.with-dropdown-buttons
+          %nav.navbar.navbar-default{:role => "navigation"}
+            .container-fluid
+              .navbar-header
+                %button.navbar-toggle{"data-target" => "#navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                  %span.sr-only Toggle navigation
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+              #navbar-collapse-1.collapse.navbar-collapse
+                =render 'layouts/menu_db'
 
-                  .header-dropdown-buttons.hidden-xs
-                    .btn-group.dropdown
-                      %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-                        %i.icon-search
-                      %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
-                        %li
-                          %form.search-box.margin-clear{:role => "search"}
-                            .form-group.has-feedback
-                              %input.form-control{:placeholder => "Search", :type => "text"}
-                                %i.icon-search.form-control-feedback
-                    .btn-group.dropdown
-                      %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-                        %i.icon-basket-1
-                        %span.cart-count.default-bg
-                          -if @shop_cart.present? && @shop_cart.shopping_cart_products.present?
-                            =@shop_cart.shopping_cart_products.count
-                          -else
-                            0
-                      =render 'layouts/basket_header'
+                .header-dropdown-buttons.hidden-xs
+                  .btn-group.dropdown
+                    %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                      %i.icon-search
+                    %ul.dropdown-menu.dropdown-menu-right.dropdown-animation
+                      %li
+                        %form.search-box.margin-clear{:role => "search"}
+                          .form-group.has-feedback
+                            %input.form-control{:placeholder => "Search", :type => "text"}
+                              %i.icon-search.form-control-feedback
+                  .btn-group.dropdown
+                    %button.btn.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                      %i.icon-basket-1
+                      %span.cart-count.default-bg
+                        -if @shop_cart.present? && @shop_cart.shopping_cart_products.present?
+                          =@shop_cart.shopping_cart_products.count
+                        -else
+                          0
+                    =render 'layouts/basket_header'

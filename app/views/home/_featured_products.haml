@@ -6,87 +6,16 @@
           Featured
           %strong Categories
         .separator
-        %p.lead.text-center Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa unde sequi consectetur atque blanditiis rem sed porro ducimus, quidem inventore eum quis.
+        %p.lead.text-center Some of the featured categories products.
   .owl-carousel.carousel-autoplay.pl-10.pr-10.owl-theme{:style => "opacity: 1; display: block;"}
     .listing-item.pl-10.pr-10.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .listing-item.pl-10.pr-10.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .listing-item.pl-10.pr-10.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .listing-item.pl-10.pr-10.mb-20.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .listing-item.pl-10.pr-10.mb-20.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .listing-item.pl-10.pr-10.mb-20.mb-20
-      .overlay-container.bordered.overlay-visible
-        %img{:alt => "", :src => asset_path("product_1.jpg")}
-          %a.overlay-link{:href => "#"}
-            %i.fa.fa-plus
-          .overlay-bottom
-            .text
-              %h3.title Category Title
-              .separator.light
-              %p.small.margin-clear
-                %em
-                  Quia nostrum temporibus et,
-                  %br velit debitis ab, eligendi totam.
-    .owl-controls.clickable
-      .owl-buttons
-        .owl-prev
-        .owl-next
+      -@featured_cat.each do |cat|
+        .overlay-container.bordered.overlay-visible
+          %img{:alt => cat.name, :src => asset_path(cat.image_url)}
+            .overlay-bottom
+              .text
+                %h3.title= cat.name
+                .separator.light
+                %p.small.margin-clear
+                  %em
+                    =cat.description

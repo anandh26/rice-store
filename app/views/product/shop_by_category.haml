@@ -9,10 +9,15 @@
           =params[:category]
 
 %section.main-container
-  .container
-    .row
-      .main.col-md-8.col-lg-offset-1.col-md-push-4.col-lg-push-3
-        %h1.page-title= "All Our #{params[:category].upcase} Varieties"
-        .separator-2
-        =render 'product/products'
-      =render 'featured_products_and_categories'
+  .row
+    .main.col-md-12.col-md-offset-1
+      %h1.page-title= "All Our #{params[:category].upcase} Varieties"
+      .separator-2
+      -if @products.length == 0
+        .overlay-container
+          %img.resize-coming-soon{:alt => "Coming soon", :src => asset_path("coming-soon.jpg")}
+      -else
+        %section.section.white-bg.clearfix
+          .row
+            =render 'product/inner_products_1'
+    =#render 'featured_products_and_categories'
